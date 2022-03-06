@@ -1,0 +1,31 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	background-color: #f7eccd;
+	margin: 0px;
+}	
+
+
+#navbar{
+	background-color: #2e2817;
+	font-size: 20px;
+	height: auto;
+	width:  100%;
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.navbutton{
+	width: auto;
+	height: auto;
+	margin: 20px 15px 20px 15px;
+	color: #fffcf2;
+	text-align: center;
+
+}
+
