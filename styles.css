@@ -10,23 +10,33 @@ body{
 
 
 #navbar{
+	display: flex;
 	background-color: #2e2817;
 	font-size: 20px;
 	height: auto;
 	width:  100%;
 	position: fixed;
-	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
 
+.navbutton:hover{
+	text-decoration-color: rgba(247, 236, 205 ,1);
+	color:#f7eccd;
+
+}
+
 .navbutton{
 	width: auto;
 	height: auto;
-	margin: 20px 15px 20px 15px;
+	padding: 20px 15px 20px 15px;
+	margin: 0;
 	color: #fffcf2;
+	text-decoration: underline;
+	text-decoration-color: rgba(255,252,242,0);
 	text-align: center;
+	transition: all 0.2s;
 
 }
 
@@ -35,6 +45,7 @@ body{
 	display: block;
 	padding-top: 80px;
 	margin: auto;
+	min-height: 100%;
 }
 
 .huge-title{
