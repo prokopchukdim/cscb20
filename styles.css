@@ -5,6 +5,7 @@ html{
 body{
 	background-color: #f7eccd;
 	margin: 0px;
+	color: #2e2817;
 }	
 
 
@@ -29,3 +30,53 @@ body{
 
 }
 
+.content-wrapper{
+	width: 80%;
+	display: block;
+	padding-top: 80px;
+	margin: auto;
+}
+
+.huge-title{
+	font-size: 50px;
+	margin-top: 60px;
+	margin-bottom: 0px;
+}
+
+.sub-title{
+	font-size: 20px;
+	margin: 0px;
+}
+
+.big-title{
+	font-size: 40px;
+	margin-top: 60px;
+	margin-bottom: 15px;
+}
+
+.linebr{
+	border-bottom: 2px solid #2e2817;
+	width: 100%;
+	margin-top: 20px;
+}
+
+@keyframes underline-animation{
+	24% {
+		color: #2e2817;
+	}	
+	25% {
+		color: #f7eccd; 
+		}
+	74%{
+		color: #f7eccd;
+	}	
+	75% {
+		color: #2e2817;
+		}
+}
+
+.underline-animation{
+	animation-name: underline-animation;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+}
