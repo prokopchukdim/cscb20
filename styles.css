@@ -21,10 +21,49 @@ body{
 	align-items: center;
 }
 
-.navbutton:hover{
+#footer{
+	min-height:200px;
+	background-color: #2e2817;
+	width: 100%;
+	display: block;
+	color:#fffcf2;
+	
+}
+
+.footer-title{
+	width:100%;
+	color:#fffcf2;
+	
+}
+
+.footer-wrapper{
+	width: 80%;
+	margin: 0 auto 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.footer-tiny{
+	font-size: 14px;
+	color: #fffcf2;
+	margin-bottom: 60px;
+}
+
+.navbutton:hover, .footer-link:hover{
 	text-decoration-color: rgba(247, 236, 205 ,1);
 	color:#f7eccd;
 
+}
+
+
+.footer-link{
+	width:100%;
+	margin:0 auto 0 auto;
+	color:#fffcf2;
+	text-decoration: underline;
+	text-decoration-color: rgba(255,252,242,0);
+	transition: all 0.2s;
+	display: flex;
 }
 
 .navbutton{
@@ -45,7 +84,7 @@ body{
 	display: block;
 	padding-top: 80px;
 	margin: auto;
-	min-height: 100%;
+	min-height: 100vh;
 }
 
 .huge-title{
@@ -60,9 +99,12 @@ body{
 }
 
 .big-title{
-	font-size: 40px;
+	font-size: 30px;
 	margin-top: 60px;
 	margin-bottom: 15px;
+}
+.small-title{
+	font-size: 16px;
 }
 
 .linebr{
@@ -72,6 +114,9 @@ body{
 }
 
 @keyframes underline-animation{
+	0% {
+		color: #2e2817;
+		}
 	24% {
 		color: #2e2817;
 	}	
@@ -82,6 +127,9 @@ body{
 		color: #f7eccd;
 	}	
 	75% {
+		color: #2e2817;
+		}
+	100% {
 		color: #2e2817;
 		}
 }
