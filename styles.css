@@ -7,7 +7,12 @@ body{
 	margin: 0px;
 	color: #2e2817;
 	font-size: 18px;
-}	
+}
+
+.text-override{
+	color: #2e2817;
+	font-size: 18px;
+}
 
 p, ul{
 	margin-block-start: 0.5em;
@@ -162,4 +167,38 @@ p, ul{
 	animation-name: underline-animation;
 	animation-duration: 1.5s;
 	animation-iteration-count: infinite;
+}
+
+/* Styles for Course_Team part*/
+.instructor-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.instructor-box{
+	width:25%;
+	min-width:220px;
+	max-width: 300px;
+	min-height: 350px;
+	margin:15px;
+	border: 2px solid #2e2817;
+	border-radius: 10px;
+	box-shadow: rgba(39, 37, 22, 0.42) 0px 5px 30px -5px;
+}
+
+.instructor-picture{
+	width:100%;
+}
+
+.instructor-name{
+	padding: 10px;
+	font-size: 25px;
+}
+
+.instructor-info{
+	padding: 10px;
+	background-color: #2e2817;
+	color:#fffcf2
 }
