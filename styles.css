@@ -175,21 +175,33 @@ p, ul{
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	max-width: 1530px;
+	margin:0 auto 0 auto;
 }
+
 
 .instructor-box{
 	width:25%;
 	min-width:220px;
-	max-width: 300px;
+	max-width: 350px;
 	min-height: 350px;
 	margin:15px;
 	border: 2px solid #2e2817;
 	border-radius: 10px;
 	box-shadow: rgba(39, 37, 22, 0.42) 0px 5px 30px -5px;
+
+	transform: perspective(100px); /* perspective for hover animation */
+	transition: all 0.2s;
+}
+
+.instructor-box:hover{
+	transform: perspective(100px) translate3d(0px, 0px, 3px);
 }
 
 .instructor-picture{
 	width:100%;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
 }
 
 .instructor-name{
