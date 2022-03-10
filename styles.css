@@ -29,16 +29,73 @@ p, ul{
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	z-index: 1;
 }
 
 #footer{
 	min-height:200px;
 	background-color: #2e2817;
 	width: 100%;
+
+
 	display: block;
 	color:#fffcf2;
+	z-index: 1;
 	
 }
+
+#feedback-textarea{
+	min-width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	min-height: 500px;
+	font-size: 18px;
+	background-color: #2e2817;
+	color:#fffcf2;
+	border-radius: 10px;
+	border: 0px solid #2e2817;
+	box-shadow: rgba(39, 37, 22, 0.42) 0px 10px 40px -10px;
+	transition: all 0.2s;
+	margin-bottom: 10px;
+	outline-color: none;
+	padding: 10px;
+}
+
+#feedback-textarea:focus{
+	outline: none;
+}
+
+::placeholder{
+	color:rgba(255,255,255,0.6);
+}
+
+#feedback-submit{
+	float: right
+}
+
+.general-button{
+	font-size: 18px;
+	color:#fffcf2;
+	background-color: #2e2817;
+	height: 50px;
+	min-width: 150px;
+	border: none;
+	border-radius: 10px;	
+	transition: all 0.2s;
+	box-shadow: rgba(39, 37, 22, 0.42) 0px 10px 40px -10px;
+	transform: perspective(1000px);
+}
+
+.general-button:hover{
+	background-color: #e4a126;
+	color:#2e2817;
+	cursor: pointer;
+}
+
+.general-button:active{
+	transform: perspective(1000px) translate3d(0,0,-100px);
+}
+
 
 .footer-title{
 	width:100%;
@@ -95,11 +152,9 @@ p, ul{
 	padding-top: 80px;
 	margin: auto;
 	min-height: 100vh;
+	padding-bottom: 80px;
 }
 
-.content-wrapper>p:last-child{
-	margin-bottom: 80px;
-}
 
 
 .huge-title{
@@ -123,11 +178,6 @@ p, ul{
 	font-size: 16px;
 }
 
-.text-link:hover{
-	color: #d1ad6a;
-
-}
-
 .text-link{
 	text-decoration: underline;
 	color: #2e2817;
@@ -135,11 +185,27 @@ p, ul{
 
 }
 
+.text-link:hover{
+	color: #d1ad6a;
+
+}
+.text-link:active, .footer-link:active{
+	color: #e4a126;
+
+}
+
+
 .linebr{
 	border-bottom: 2px solid #2e2817;
 	text-decoration-color: rgba(255,252,242,1);
 	width: 100%;
 	margin-top: 20px;
+}
+
+.space-br{
+	width: 100%;
+	margin-bottom: 80px;
+
 }
 
 @keyframes underline-animation{
@@ -176,7 +242,7 @@ p, ul{
 	justify-content: center;
 	align-items: center;
 	max-width: 1530px;
-	margin:0 auto 0 auto;
+	margin: 60px auto 0 auto;
 }
 
 
