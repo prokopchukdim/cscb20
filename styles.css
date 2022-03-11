@@ -153,6 +153,11 @@ p, ul{
 	margin: auto;
 	min-height: 100vh;
 	padding-bottom: 80px;
+
+	/*Sometimes transforms break z-indexing so these keep it consistent for everything
+	inside of the content wrapper */
+	transform: translate3d(0px, 0px, 0px);
+	-webkit-transform: translate3d(0px, 0px, 0px);
 }
 
 
