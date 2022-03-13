@@ -23,13 +23,19 @@ p, ul{
 	display: flex;
 	background-color: #2e2817;
 	font-size: 20px;
-	height: auto;
+	height: 63px;
 	width:  100%;
 	position: fixed;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	z-index: 1;
+}
+
+#navbuttons{
+	display: contents;
+	padding: 0;
+	margin: 0;
 }
 
 #footer{
@@ -284,4 +290,95 @@ p, ul{
 	padding: 10px;
 	background-color: #2e2817;
 	color:#fffcf2
+}
+
+
+/*mobile code*/
+
+#mobile-nav-toggle{
+	display: none;
+}
+label{
+	cursor: pointer;
+	float: right;
+	display: none;
+}
+label>span{
+	height: 1px;
+	margin: 31px 0px 31px 0px;
+	background-color: #fffcf2;
+	width: 28px;
+}
+label>span::after{
+	background-color: #fffcf2;
+	display: block;
+	content: "";
+	top: -10px;
+	position: relative;
+	height: 1px;
+	width: 100%;
+}
+label>span::before{
+	background-color: #fffcf2;
+	display: block;
+	content: "";
+	top: 9px;
+	position: relative;
+	height: 1px;
+	width: 100%;
+}
+
+
+@media screen and (max-width: 1216px){
+	label{
+		display: inline-flex;
+		align-self: flex-end;
+		margin-right: 15px;
+	}
+	#navbuttons{
+		display: none;
+	}
+
+	#navbuttons>a:last-child{
+		padding-bottom: 20px;
+	}
+
+	#mobile-nav-toggle:checked + #navbuttons{
+		display: contents;
+	}
+
+
+	#navbar{
+		flex-direction: column;
+		height: auto;
+		min-height: 49px;
+		width: 100vw;
+	}
+	.navbutton{
+		width: 100%;
+		padding: 10px;
+	}
+}
+@media screen and (max-width: 768px){
+
+	.huge-title{
+		font-size: 25px;
+	}
+
+	.big-title{
+		font-size: 20px;
+		margin-top: 30px;
+	}
+
+	body{
+		font-size: 14px;
+	}
+
+	.small-title{
+		font-size: 14px;
+	}
+
+	.footer-tiny{
+		font-size: 10px;
+	}
 }
