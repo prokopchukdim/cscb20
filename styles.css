@@ -347,7 +347,6 @@ label>span::before{
 		display: contents;
 	}
 
-
 	#navbar{
 		flex-direction: column;
 		height: auto;
@@ -357,6 +356,10 @@ label>span::before{
 	.navbutton{
 		width: 100%;
 		padding: 10px;
+	}
+
+	.huge-title{
+		font-size: 35px;
 	}
 }
 @media screen and (max-width: 768px){
@@ -370,15 +373,42 @@ label>span::before{
 		margin-top: 30px;
 	}
 
-	body{
+	body, .small-title, #feedback-textarea, .general-button{
 		font-size: 14px;
 	}
 
-	.small-title{
-		font-size: 14px;
+	.text-override{
+		font-size: 16px;
 	}
 
 	.footer-tiny{
 		font-size: 10px;
+	}
+
+	.space-br{
+		margin-bottom: 40px;
+	}
+
+	.instructor-wrapper{
+		margin-top: 30px;
+	}
+
+	.instructor-box{
+		min-width: 280px;
+		max-width: 310px;
+		width: 100%;
+	}
+	.instructor-name{
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 447px){
+	.huge-title{
+		font-size: 19px;
+	}
+
+	.big-title, .instructor-name{
+		font-size: 16px;
 	}
 }
