@@ -122,7 +122,7 @@ p, ul{
 	margin-bottom: 60px;
 }
 
-.navbutton:hover, .footer-link:hover{
+.navbutton:hover, .dark-link:hover{
 	text-decoration-color: rgba(247, 236, 205 ,1);
 	color:#f7eccd;
 
@@ -132,11 +132,14 @@ p, ul{
 .footer-link{
 	width:100%;
 	margin:0 auto 0 auto;
+	display: flex;
+}
+
+.dark-link{
 	color:#fffcf2;
 	text-decoration: underline;
 	text-decoration-color: rgba(255,252,242,1);
 	transition: all 0.2s;
-	display: flex;
 }
 
 .navbutton{
@@ -200,7 +203,7 @@ p, ul{
 	color: #d1ad6a;
 
 }
-.text-link:active, .footer-link:active{
+.text-link:active, .dark-link:active{
 	color: #e4a126;
 
 }
@@ -252,14 +255,14 @@ p, ul{
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	max-width: 1530px;
+	max-width: 800px;
 	margin: 60px auto 0 auto;
 }
 
 
 .instructor-box{
-	width:25%;
-	min-width:220px;
+	width:60%;
+	min-width:260px;
 	max-width: 350px;
 	min-height: 350px;
 	margin:15px;
@@ -361,6 +364,10 @@ label>span::before{
 	.huge-title{
 		font-size: 35px;
 	}
+
+	.instructor-name{
+		font-size: 20px;
+	}
 }
 @media screen and (max-width: 768px){
 
@@ -397,9 +404,6 @@ label>span::before{
 		min-width: 280px;
 		max-width: 310px;
 		width: 100%;
-	}
-	.instructor-name{
-		font-size: 20px;
 	}
 }
 
