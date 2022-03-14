@@ -309,6 +309,7 @@ img{
 	background-color: #2e2817;
 	border-radius: 10px;
 	color: #fffcf2;
+	box-shadow: rgba(39, 37, 22, 0.42) 0px 5px 30px -5px;
 }
 
 .table-title{
@@ -326,7 +327,7 @@ img{
 
 .table-header-cell{
     display: table-cell;
-    padding: 10px;
+    padding: 10px 5px 10px 5px;
     text-align: center;
 	border-radius: 10px;
 
@@ -343,7 +344,7 @@ img{
 .table-body-cell{
     display: table-cell;
     text-align: center;
-	padding: 10px 0px 10px 0px;
+	padding: 10px 5px 10px 5px;
 }
 
 iframe{
