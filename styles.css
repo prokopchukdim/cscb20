@@ -29,11 +29,11 @@ p, ul{
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	z-index: 1;
+	z-index: 1000;
 }
 
 #navbuttons{
-	display: contents;
+	display: flex;
 	padding: 0;
 	margin: 0;
 }
@@ -162,8 +162,8 @@ p, ul{
 	margin: auto;
 	min-height: 100vh;
 	padding-bottom: 80px;
-
-	/*Sometimes transforms break z-indexing so these keep it consistent for everything
+	
+  /*Sometimes transforms break z-indexing so these keep it consistent for everything
 	inside of the content wrapper */
 	transform: translate3d(0px, 0px, 0px);
 	-webkit-transform: translate3d(0px, 0px, 0px);
@@ -203,7 +203,7 @@ p, ul{
 	color: #d1ad6a;
 
 }
-.text-link:active, .dark-link:active{
+.text-link:active, .dark-link:active, .navbutton:active{
 	color: #e4a126;
 
 }
@@ -301,6 +301,13 @@ p, ul{
 #mobile-nav-toggle{
 	display: none;
 }
+
+#mobile-nav{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
 label{
 	cursor: pointer;
 	float: right;
@@ -311,8 +318,9 @@ label>span{
 	margin: 31px 0px 31px 0px;
 	background-color: #fffcf2;
 	width: 28px;
+	transition: all 0.2s;
 }
-label>span::after{
+label>span::after, label>span::before{
 	background-color: #fffcf2;
 	display: block;
 	content: "";
@@ -320,23 +328,26 @@ label>span::after{
 	position: relative;
 	height: 1px;
 	width: 100%;
+	transition: all 0.2s;
 }
 label>span::before{
-	background-color: #fffcf2;
-	display: block;
-	content: "";
 	top: 9px;
-	position: relative;
-	height: 1px;
-	width: 100%;
 }
 
+label:hover>span, label:hover>span::before, label:hover>span::after{
+	background-color: #d1ad6a;
+}
+
+#mobile-nav{
+	display:none;
+}
 
 @media screen and (max-width: 1216px){
 	label{
 		display: inline-flex;
-		align-self: flex-end;
+		float: right;
 		margin-right: 15px;
+		margin-left: auto;
 	}
 	#navbuttons{
 		display: none;
@@ -346,8 +357,11 @@ label>span::before{
 		padding-bottom: 20px;
 	}
 
-	#mobile-nav-toggle:checked + #navbuttons{
-		display: contents;
+	#mobile-nav-toggle:checked ~ #navbuttons{
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
 	}
 
 	#navbar{
@@ -359,6 +373,16 @@ label>span::before{
 	.navbutton{
 		width: 100%;
 		padding: 10px;
+		box-sizing: border-box;
+	}
+
+	.mobile-nav-home{
+		width: auto;
+		padding: 20px 15px 20px 15px;
+	}
+
+	#mobile-nav{
+		display:flex;
 	}
 
 	.huge-title{
