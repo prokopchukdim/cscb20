@@ -297,7 +297,9 @@ img{
 .instructor-info{
 	padding: 10px;
 	background-color: #2e2817;
-	color:#fffcf2
+	color:#fffcf2;
+	border-bottom-left-radius: 9px;
+	border-bottom-right-radius: 9px;
 }
 
 /* table code */
