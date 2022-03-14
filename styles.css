@@ -272,7 +272,7 @@ p, ul{
 	max-width: 350px;
 	min-height: 350px;
 	margin:15px;
-	border: 2px solid #2e2817;
+	/* border: 2px solid #2e2817; */
 	border-radius: 10px;
 	box-shadow: rgba(39, 37, 22, 0.42) 0px 5px 30px -5px;
 
