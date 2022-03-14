@@ -341,7 +341,9 @@ p, ul{
 	padding: 10px 0px 10px 0px;
 }
 
-
+iframe{
+	margin: auto;
+}
 
 /*mobile code*/
 
