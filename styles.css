@@ -343,6 +343,8 @@ p, ul{
 
 iframe{
 	margin: auto;
+	width: 80%;
+	height: 600px;display: block;
 }
 
 /*mobile code*/
