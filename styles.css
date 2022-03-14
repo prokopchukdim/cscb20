@@ -397,7 +397,7 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 	label{
 		display: inline-flex;
 		float: right;
-		margin-right: 15px;
+		margin-right: 25px;
 		margin-left: auto;
 	}
 	#navbuttons{
