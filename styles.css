@@ -19,6 +19,11 @@ p, ul{
 	margin-block-end: 0.5em;
 }
 
+img{
+	width: 100%;
+	margin: 0px auto 0px auto;
+	display:block;
+}
 #navbar{
 	display: flex;
 	background-color: #2e2817;
