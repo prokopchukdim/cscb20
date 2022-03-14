@@ -6,7 +6,7 @@ body{
 	background-color: #f7eccd;
 	margin: 0px;
 	color: #2e2817;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 .text-override{
@@ -300,27 +300,31 @@ p, ul{
 #table{
     width:100%;
     display: table;
+	padding-bottom: 20px;
+	background-color: #2e2817;
+	border-radius: 10px;
+	color: #fffcf2;
 }
 
-#table-title{
+.table-title{
     display: table-caption;
     text-align: left;
-    font-size: 30px;
-    font-weight: bold;
 }
 
 #table-header{
     display: table-header-group;
-    background-color: #ECD0B4;
+    background-color:#2e2817;
+	color:#fffcf2;
     font-size: 25px;
-    font-weight: bold;
+
 }
 
 .table-header-cell{
     display: table-cell;
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid black;
+	border-radius: 10px;
+
 }
 
 #table-body{
@@ -334,7 +338,7 @@ p, ul{
 .table-body-cell{
     display: table-cell;
     text-align: center;
-    border-bottom: 0.5px solid black;
+
 }
 
 
@@ -431,6 +435,10 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 		font-size: 35px;
 	}
 
+	#table-header{
+		font-size: 20px;
+	}
+
 	.instructor-name{
 		font-size: 20px;
 	}
@@ -450,8 +458,12 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 		font-size: 14px;
 	}
 
-	.text-override{
+	.text-override, #table-header{
 		font-size: 16px;
+	}
+
+	.table-body-cell{
+		font-size: 12px;
 	}
 
 	.footer-tiny{
@@ -480,5 +492,12 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 
 	.big-title, .instructor-name{
 		font-size: 16px;
+	}
+	#table-header{
+		font-size: 14px;
+	}
+
+	.table-body-cell{
+		font-size: 10px;
 	}
 }
