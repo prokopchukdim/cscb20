@@ -23,13 +23,19 @@ p, ul{
 	display: flex;
 	background-color: #2e2817;
 	font-size: 20px;
-	height: auto;
+	height: 63px;
 	width:  100%;
 	position: fixed;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	z-index: 1000;
+}
+
+#navbuttons{
+	display: flex;
+	padding: 0;
+	margin: 0;
 }
 
 #footer{
@@ -116,7 +122,7 @@ p, ul{
 	margin-bottom: 60px;
 }
 
-.navbutton:hover, .footer-link:hover{
+.navbutton:hover, .dark-link:hover{
 	text-decoration-color: rgba(247, 236, 205 ,1);
 	color:#f7eccd;
 
@@ -126,11 +132,14 @@ p, ul{
 .footer-link{
 	width:100%;
 	margin:0 auto 0 auto;
+	display: flex;
+}
+
+.dark-link{
 	color:#fffcf2;
 	text-decoration: underline;
 	text-decoration-color: rgba(255,252,242,1);
 	transition: all 0.2s;
-	display: flex;
 }
 
 .navbutton{
@@ -153,6 +162,10 @@ p, ul{
 	margin: auto;
 	min-height: 100vh;
 	padding-bottom: 80px;
+	
+  /*Sometimes transforms break z-indexing so these keep it consistent for everything
+	inside of the content wrapper */
+	transform: translate3d(0px, 0px, 0px);
 	-webkit-transform: translate3d(0px, 0px, 0px);
 }
 
@@ -190,7 +203,7 @@ p, ul{
 	color: #d1ad6a;
 
 }
-.text-link:active, .footer-link:active{
+.text-link:active, .dark-link:active, .navbutton:active{
 	color: #e4a126;
 
 }
@@ -242,14 +255,14 @@ p, ul{
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	max-width: 1530px;
+	max-width: 800px;
 	margin: 60px auto 0 auto;
 }
 
 
 .instructor-box{
-	width:25%;
-	min-width:220px;
+	width:60%;
+	min-width:260px;
 	max-width: 350px;
 	min-height: 350px;
 	margin:15px;
@@ -280,4 +293,150 @@ p, ul{
 	padding: 10px;
 	background-color: #2e2817;
 	color:#fffcf2
+}
+
+
+/*mobile code*/
+
+#mobile-nav-toggle{
+	display: none;
+}
+
+#mobile-nav{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+label{
+	cursor: pointer;
+	float: right;
+	display: none;
+}
+label>span{
+	height: 1px;
+	margin: 31px 0px 31px 0px;
+	background-color: #fffcf2;
+	width: 28px;
+	transition: all 0.2s;
+}
+label>span::after, label>span::before{
+	background-color: #fffcf2;
+	display: block;
+	content: "";
+	top: -10px;
+	position: relative;
+	height: 1px;
+	width: 100%;
+	transition: all 0.2s;
+}
+label>span::before{
+	top: 9px;
+}
+
+label:hover>span, label:hover>span::before, label:hover>span::after{
+	background-color: #d1ad6a;
+}
+
+#mobile-nav{
+	display:none;
+}
+
+@media screen and (max-width: 1216px){
+	label{
+		display: inline-flex;
+		float: right;
+		margin-right: 15px;
+		margin-left: auto;
+	}
+	#navbuttons{
+		display: none;
+	}
+
+	#navbuttons>a:last-child{
+		padding-bottom: 20px;
+	}
+
+	#mobile-nav-toggle:checked ~ #navbuttons{
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+	}
+
+	#navbar{
+		flex-direction: column;
+		height: auto;
+		min-height: 49px;
+		width: 100vw;
+	}
+	.navbutton{
+		width: 100%;
+		padding: 10px;
+		box-sizing: border-box;
+	}
+
+	.mobile-nav-home{
+		width: auto;
+		padding: 20px 15px 20px 15px;
+	}
+
+	#mobile-nav{
+		display:flex;
+	}
+
+	.huge-title{
+		font-size: 35px;
+	}
+
+	.instructor-name{
+		font-size: 20px;
+	}
+}
+@media screen and (max-width: 768px){
+
+	.huge-title{
+		font-size: 25px;
+	}
+
+	.big-title{
+		font-size: 20px;
+		margin-top: 30px;
+	}
+
+	body, .small-title, #feedback-textarea, .general-button{
+		font-size: 14px;
+	}
+
+	.text-override{
+		font-size: 16px;
+	}
+
+	.footer-tiny{
+		font-size: 10px;
+	}
+
+	.space-br{
+		margin-bottom: 40px;
+	}
+
+	.instructor-wrapper{
+		margin-top: 30px;
+	}
+
+	.instructor-box{
+		min-width: 280px;
+		max-width: 310px;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 447px){
+	.huge-title{
+		font-size: 19px;
+	}
+
+	.big-title, .instructor-name{
+		font-size: 16px;
+	}
 }
