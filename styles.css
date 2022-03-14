@@ -406,7 +406,7 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 	label{
 		display: inline-flex;
 		float: right;
-		margin-right: 25px;
+		margin-right: 15px;
 		margin-left: auto;
 	}
 	#navbuttons{
@@ -428,7 +428,6 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 		flex-direction: column;
 		height: auto;
 		min-height: 49px;
-		width: 100vw;
 	}
 	.navbutton{
 		width: 100%;
