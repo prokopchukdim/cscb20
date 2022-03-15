@@ -1,0 +1,1 @@
+As a student user, when clicking on the “Lectures and Tutorials” link, the student should be able to see lab and lecture materials from each week of the course and be able to access those materials through links.

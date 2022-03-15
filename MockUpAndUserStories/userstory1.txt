@@ -1,0 +1,1 @@
+As a student user, when clicking on the “Home” link, the student should be able to see basic course and course delivery information, along with the contact information of the instructor.

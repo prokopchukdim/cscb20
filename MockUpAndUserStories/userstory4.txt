@@ -1,0 +1,1 @@
+As a student user, when clicking on the “Announcements” link, the student should be able to see the announcements the course team has made in reverse chronological order.

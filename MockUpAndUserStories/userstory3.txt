@@ -1,0 +1,1 @@
+As a student user, when clicking on the “Feedback” link, the student should be able to anonymously enter their own general feedback or questions and submit that feedback through the website.

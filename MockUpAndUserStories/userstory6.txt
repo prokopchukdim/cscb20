@@ -1,0 +1,1 @@
+As a student user, when clicking on the “Course Team” link, the student should be able to see the names of the current professor and the TAs, as well as their contact information and office hours.
