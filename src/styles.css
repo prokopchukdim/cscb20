@@ -354,7 +354,9 @@ p, ul{
 iframe{
 	margin: auto;
 	width: 80%;
-	height: 600px;display: block;
+	height: 600px;
+	display: block;
+	border-radius: 10px;
 }
 
 /*mobile code*/
@@ -464,7 +466,7 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 	}
 
 	.huge-title{
-		font-size: 25px;
+		font-size: 23px;
 	}
 
 	.big-title{
@@ -505,7 +507,7 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 
 @media screen and (max-width: 520px){
 	.huge-title{
-		font-size: 17.5px;
+		font-size: 17px;
 	}
 
 	.big-title, .instructor-name{
@@ -521,7 +523,7 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 }
 
 /* For the thinnest of devices */
-@media screen and (max-width: 374px){
+@media screen and (max-width: 376px){
 	body, .small-title, #feedback-textarea, .general-button{
 		font-size: 12px;
 	}
