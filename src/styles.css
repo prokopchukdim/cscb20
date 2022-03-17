@@ -175,6 +175,7 @@ p, ul{
 	font-size: 50px;
 	margin-top: 60px;
 	margin-bottom: 0px;
+	overflow: overlay;
 }
 
 .sub-title{
@@ -347,7 +348,7 @@ p, ul{
 .table-body-cell{
     display: table-cell;
     text-align: center;
-	padding: 10px 5px 10px 5px;
+	padding: 10px;
 }
 
 iframe{
@@ -458,6 +459,10 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 }
 @media screen and (max-width: 768px){
 
+	iframe{
+		width: 100%;
+	}
+
 	.huge-title{
 		font-size: 25px;
 	}
@@ -498,9 +503,9 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 	}
 }
 
-@media screen and (max-width: 447px){
+@media screen and (max-width: 520px){
 	.huge-title{
-		font-size: 19px;
+		font-size: 17.5px;
 	}
 
 	.big-title, .instructor-name{
@@ -512,5 +517,29 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 
 	.table-body-cell{
 		font-size: 10px;
+	}
+}
+
+/* For the thinnest of devices */
+@media screen and (max-width: 374px){
+	body, .small-title, #feedback-textarea, .general-button{
+		font-size: 12px;
+	}
+	
+	#table-header{
+		font-size: 10px;
+	}
+	.table-header-cell{
+		padding: 5px 0px 5px 0px;
+	}
+	.table-body-cell{
+		padding: 3px
+	}
+	.huge-title, .big-title, .instructor-name{
+		font-size: 14px;
+	}
+	.instructor-box{
+		min-width: 100%;
+		min-height: 100%;
 	}
 }
