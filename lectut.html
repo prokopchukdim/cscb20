@@ -1,0 +1,185 @@
+{% extends "loginsuccess_temp.html" %}
+{% block content %}
+        <div class = "content-wrapper">
+            <p class="huge-title">CSCB20\\Winter_2022\\Lecs_Tuts<span class = "underline-animation">_</span></p>
+            <div class="linebr"></div>
+            <div class="space-br"></div>
+
+            <p>This section contains class materials and tutorial exercises. Please print and bring to class relevant notes/woeksheets.</p>
+            <p>Tutorials are held every week. The first tutorial week is week 2. Please make use of this valuable resource!</p>
+            
+            <p class="table-title big-title">\\Course_Materials</p>
+            <div id="table">
+                
+                <div id="table-header">
+                    <div class="table-header-cell">Week</div>
+                    <div class="table-header-cell">Topic</div>
+                    <div class="table-header-cell">Lecture Material</div>
+                    <!-- <div class="table-header-cell">In Class</div> -->
+                    <div class="table-header-cell">Tutorial Material</div>
+                    <!-- <div class="table-header-cell">Tutorial Solutions</div> -->
+                </div>
+                <div id="table-body">
+
+                    <div class="table-row">
+                        <div class="table-body-cell">1</div>
+                        <div class="table-body-cell">Introduction, Databases background</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w1.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w1_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell"></div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">2</div>
+                        <div class="table-body-cell">Relational Model, Relational Algebra</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w2.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w2_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut2.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut2_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">3</div>
+                        <div class="table-body-cell">Relational Algebra Queries and SQL Query Language</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w3.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w3_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut3.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut3_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">4</div>
+                        <div class="table-body-cell">SQL and MySQL</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w4.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'files/handouts/w4_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut4.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut4_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+
+
+                    <div class="table-row">
+                        <div class="table-body-cell">5</div>
+                        <div class="table-body-cell">MySQL Queries, Creating and Editing Tables</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w5.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w5_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut5.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut5_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">6</div>
+                        <div class="table-body-cell">MySQL Outer Joins, Views, NULL, string functions, HTML</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w6.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w6_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut6.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut6_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">7</div>
+                        <div class="table-body-cell">HTML, CSS</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w7.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w7_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut7.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut7_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">8</div>
+                        <div class="table-body-cell">PHP</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w8.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w8_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut8.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut8_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">9</div>
+                        <div class="table-body-cell">PHP and SQL</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w9.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w9_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut9.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut9_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">10</div>
+                        <div class="table-body-cell">JavaScript and jQuery</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w10.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w10_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut10.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut10_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">11</div>
+                        <div class="table-body-cell">jQuery, AJAX, JSON</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/w11.pdf')}}" target="_blank">Presentation Slides</a>
+                            <a href="{{ url_for('static', filename = 'handouts/w11_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut11.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut11_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">12</div>
+                        <div class="table-body-cell">Last Year's final</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'lectures/final.pdf')}}" target="_blank">W21 Final</a>
+                            <a href="f{{ url_for('static', filename = 'handouts/w12_handout.pdf')}}" target="_blank">Handout</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('static', filename = 'tutorials/tut12.pdf')}}" target="_blank">Handout</a>
+                            <a href="{{ url_for('static', filename = 'tutorials/tut12_soln.pdf')}}" target="_blank">Solutions</a>
+                        </div>
+                    </div>
+
+                    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}

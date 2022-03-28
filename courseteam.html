@@ -1,0 +1,89 @@
+{% extends "loginsuccess_temp.html" %}
+{% block content %}
+    <div class = "content-wrapper">
+		<p class="huge-title">CSCB20\\Winter_2022\\Course_Team<span class = "underline-animation">_</span></p>
+		<!--<p class="sub-title">Winter 2022</p> !-->
+		<div class="linebr"></div>
+    
+        <div class = "instructor-wrapper">
+            <div class = "instructor-box">
+                <img class = "instructor-picture" src="{{ url_for('static', filename = 'images/purva.jpg')}}">
+                <div class = "instructor-name">Dr. Purva R. Gawde 
+                    <p class = "text-override">Professor</p>
+                </div>
+                <div class = "instructor-info">
+                    Email: <a class = "dark-link" href="mailto:purva.gawde@utoronto.ca">purva.gawde@utoronto.ca</a>
+                    <br>
+                    Office Hours: Tue 10am-11pm
+                    <br>
+                    Office: IC 484
+                </div>
+            </div>
+            <div class = "instructor-box">
+                <img class = "instructor-picture" src="{{ url_for('static', filename = 'images/custom-placeholder-headshot.jpg')}}">
+                <div class = "instructor-name">Rick Lan 
+                    <p class = "text-override">TA</p>
+                </div>
+                <div class = "instructor-info">
+                    Email: <a class = "dark-link" href="mailto:rick.lan@utoronto.ca">rick.lan@utoronto.ca</a>
+                    <br>
+                    Office Hours: Wed 5-6pm, Thu 3-4pm
+                    <br>
+                    Office: Online
+                </div>
+            </div>
+            <div class = "instructor-box">
+                <img class = "instructor-picture" src="{{ url_for('static', filename = 'images/custom-placeholder-headshot.jpg')}}">
+                <div class = "instructor-name">Vidya Ananda 
+                    <p class = "text-override">TA</p>
+                </div>
+                <div class = "instructor-info">
+                    Email: <a class = "dark-link" href="mailto:vidya.ananda@utoronto.ca">vidya.ananda@utoronto.ca</a>
+                    <br>
+                    Office Hours: Tue 2-4pm
+                    <br>
+                    Office: Online
+                </div>
+            </div>
+            <div class = "instructor-box">
+                <img class = "instructor-picture" src="{{ url_for('static', filename = 'images/custom-placeholder-headshot.jpg')}}">
+                <div class = "instructor-name">Daniel Zee 
+                    <p class = "text-override">TA</p>
+                </div>
+                <div class = "instructor-info">
+                    Email: <a class = "dark-link" href="mailto:daniel.zee@utoronto.ca">daniel.zee@utoronto.ca</a>
+                    <br>
+                    Office Hours: TBA
+                    <br>
+                    Office: TBA
+                </div>
+            </div>
+            <!-- <div class = "instructor-box">
+                <img class = "instructor-picture" src="src\custom-placeholder-headshot.jpg">
+                <div class = "instructor-name">Name 
+                    <p class = "text-override">Position</p>
+                </div>
+                <div class = "instructor-info">
+                    Info
+                    <br>
+                    Info
+                    <br>
+                    Info
+                </div>
+            </div>
+            <div class = "instructor-box">
+                <img class = "instructor-picture" src="src\custom-placeholder-headshot.jpg">
+                <div class = "instructor-name">Name 
+                    <p class = "text-override">Position</p>
+                </div>
+                <div class = "instructor-info">
+                    Info
+                    <br>
+                    Info
+                    <br>
+                    Info
+                </div>
+            </div> -->
+        </div>
+    </div>
+    {% endblock %}
