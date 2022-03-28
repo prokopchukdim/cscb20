@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>CSCB20</title>
+
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+	<nav id = "navbar">
+
+		<input type = "checkbox" id = "mobile-nav-toggle"/>
+
+		<div id = "mobile-nav">
+			<a class = "navbutton mobile-nav-home" href="template.html">CSCB20</a>
+			<label for = "mobile-nav-toggle">
+				<span></span>
+			</label>
+		</div>
+				
+		<ul id = "navbuttons">
+			<a class = "navbutton" href="{{ url_for('signuphome') }}">Home</a>
+            <a class = "navbutton" href="{{ url_for('announcements') }}">Announcements</a>
+			<a class = "navbutton" href="{{ url_for('syllabus') }}">Syllabus</a>
+			<a class = "navbutton" href="{{ url_for('courseteam') }}">Course Team</a>
+			<a class = "navbutton" href="{{ url_for('lectut') }}">Lectures & Tutorials</a>
+			<a class = "navbutton" href="{{ url_for('assignments') }}">Assignments</a>
+			<a class = "navbutton" href="{{ url_for('resources') }}">Resources</a>
+			<a class = "navbutton" href="{{ url_for('feedback') }}">Feedback</a>
+			<a class = "navbutton" target = "_blank" href="https://markus.utsc.utoronto.ca/cscb20w22/assignments">MarkUs</a>
+			<a class = "navbutton" target = "_blank" href="https://piazza.com/utoronto.ca/winter2022/cscb20h3">Piazza</a>
+		</ul>
+	</nav>	
+
+    {% block content %}
+    {% endblock %}
+
+	<div id = "footer">
+		<div class = "footer-wrapper">
+			<p class = "big-title footer-title">CSCB20\\Winter_2022\\Footer<span class = "underline-animation">_</span></p>
+			<a target = "_blank" class = "small-title dark-link footer-link " href="https://web.cs.toronto.edu/">University of Toronto Faculty of Computer Science</a>
+			<p class = "footer-tiny">Designed by: Dmitriy Prokopchuk, Katarina Sotic, Arailym Mussilim</p>
+		</div>
+	</div>
+
+</body>
+</html>

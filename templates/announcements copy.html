@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="announcements.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <title>Announcements</title>
+    </head>
+    <body>
+        <nav id = "navbar">
+
+            <input type = "checkbox" id = "mobile-nav-toggle"/>
+    
+            <div id = "mobile-nav">
+                <a class = "navbutton mobile-nav-home" href="template.html">CSCB20</a>
+                <label for = "mobile-nav-toggle">
+                    <span></span>
+                </label>
+            </div>
+                    
+            <ul id = "navbuttons">
+                <a class = "navbutton" href="index.html">Home</a>
+                <a class = "navbutton" href="announcements.html">Announcements</a>
+                <a class = "navbutton" href="syllabus.html">Syllabus</a>
+                <a class = "navbutton" href="courseteam.html">Course Team</a>
+                <a class = "navbutton" href="lectut.html">Lectures & Tutorials</a>
+                <a class = "navbutton" href="assignments.html">Assignments</a>
+                <a class = "navbutton" href="resources.html">Resources</a>
+                <a class = "navbutton" href="feedback.html">Feedback</a>
+                <a class = "navbutton" target = "_blank" href="https://markus.utsc.utoronto.ca/cscb20w22/assignments">MarkUs</a>
+                <a class = "navbutton" target = "_blank" href="https://piazza.com/utoronto.ca/winter2022/cscb20h3">Piazza</a>
+            </ul>
+        </nav>		
+
+        <div class="content-wrapper">
+            <p class="huge-title">CSCB20\\Winter_2022\\Announcements<span class = "underline-animation">_</span></p>
+            <div class="linebr"></div>
+            <div class="space-br"></div>
+
+            <p class = "big-title">\\Calendar</p>
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&hl=en&src=MjNqbGRyc2FpNTVsNjdpMDNvMXUyNXVkbWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%238E24AA" frameborder="0" scrolling="no"></iframe>
+
+            <p class="big-title">\\Jan 2</p>
+            <p>Welcome to CSCB20! Please note that tutorials will begin in week 2.</p>
+            <p class="big-title">\\Feb 3</p>
+            <p>Assignement 1 is due in 1 week. Start working early, as this is a big one!</p>
+            <p class="big-title">\\Mar 8</p>
+            <p>My office hours will be cancelled today and I will be having them on the 10th March instead at IC404.</p>
+            <p>-Purva</p>
+        </div>
+        
+        <div id = "footer">
+            <div class = "footer-wrapper">
+                <p class = "big-title footer-title">CSCB20\\Winter_2022\\Footer<span class = "underline-animation">_</span></p>
+                <a target = "_blank" class = "small-title dark-link footer-link " href="https://web.cs.toronto.edu/">University of Toronto Faculty of Computer Science</a>
+                <p class = "footer-tiny">Designed by: Dmitriy Prokopchuk, Katarina Sotic, Arailym Mussilim</p>
+            </div>
+        </div>
+    </body>
+</html>

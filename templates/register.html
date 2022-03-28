@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>CSCB20</title>
+
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+	<nav id = "navbar">
+
+		<input type = "checkbox" id = "mobile-nav-toggle"/>
+
+		<div id = "mobile-nav">
+			<a class = "navbutton mobile-nav-home" href="template.html">CSCB20</a>
+			<label for = "mobile-nav-toggle">
+				<span></span>
+			</label>
+		</div>
+	</nav>	
+	{% block content %}
+	
+    <div class = "content-wrapper">
+        <p class="big-title">\\Please create a new account</p> 	
+            <div class="signup">
+                <form action="http://127.0.0.1:5000/register" method = "post">
+                        <label for="chk" aria-hidden="true">Sign up</label>
+                        <input type="utorid" id="Utorid" name="Utorid" placeholder="Utorid" required="">
+                        <input type="email" id="Email" name="Email" placeholder="Email" required="">
+                        <input type="password" id="Password" name="Password" placeholder="Password" required="">
+                        <button type="register">Sign up</button>
+                </form>
+            </div>
+	</div>
+	
+	{% with messages = get_flashed_messages(with_categories = true) %}
+	{% if messages %}
+		<ul class=flashes>
+		{% for category, message in messages %}
+			<li class="{{ category }}"><strong>Error: </strong>{{ message }}</li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+	{% endwith %}
+        
+
+    
+        
+	{% endblock %}
+	
+</body>
+</html>
