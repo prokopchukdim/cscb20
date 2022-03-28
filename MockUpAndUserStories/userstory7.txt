@@ -1,1 +1,0 @@
-As a student user, when clicking on the “Resources” link, the students should be able to see relevant midterm information, as well as a list of links and descriptions of online resources that they may use to better understand course content.
