@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>CSCB20</title>
+
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+	<nav id = "navbar">
+
+		<input type = "checkbox" id = "mobile-nav-toggle"/>
+
+		<div id = "mobile-nav">
+			<a class = "navbutton mobile-nav-home" href="template.html">CSCB20</a>
+			<label for = "mobile-nav-toggle">
+				<span></span>
+			</label>
+		</div>
+	</nav>	
+
+{% block content %}
+{% with messages = get_flashed_messages(with_categories = True) %}
+{% if messages %}
+	{% for category, message in messages %}
+        <div>{{ category }} - {{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+	<div class = "content-wrapper">
+		<p class="big-title">\\Please log in</p>
+			<div class="login">
+				<form action="http://127.0.0.1:5000/login" method = "post">
+				<label for="chk" aria-hidden="true">Login</label>
+				<input type="utorid" name="utorid" placeholder="Utorid" required="">
+				<input type="password" name="pswd" placeholder="Password" required="">
+				<button>Log in</button>
+				</form>
+			</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>

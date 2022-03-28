@@ -1,0 +1,170 @@
+{% extends "loginsuccess_temp.html" %}
+{% block content %}
+        <div class = "content-wrapper">
+            <p class="big-title">Here are your marks<span class = "underline-animation">_</span></p>
+            <div class="linebr"></div>
+            <div class="space-br"></div>
+            <div id="table">
+                
+                <div id="table-header">
+                    <div class="table-header-cell">Course Component</div>
+                    <div class="table-header-cell">Mark</div>
+                    <div class="table-header-cell">Request a remark</div>
+                    <!-- <div class="table-header-cell">In Class</div> -->
+                    <div class="table-header-cell">Explanation</div>
+                    <!-- <div class="table-header-cell">Tutorial Solutions</div> -->
+                </div>
+                <div id="table-body">
+
+                    <div class="table-row">
+                        <div class="table-body-cell">1</div>
+                        <div class="table-body-cell">Introduction, Databases background</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-body-cell">2</div>
+                        <div class="table-body-cell">Relational Model, Relational Algebra</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">3</div>
+                        <div class="table-body-cell">Relational Algebra Queries and SQL Query Language</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">4</div>
+                        <div class="table-body-cell">SQL and MySQL</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+
+
+                    <div class="table-row">
+                        <div class="table-body-cell">5</div>
+                        <div class="table-body-cell">MySQL Queries, Creating and Editing Tables</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">6</div>
+                        <div class="table-body-cell">MySQL Outer Joins, Views, NULL, string functions, HTML</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">7</div>
+                        <div class="table-body-cell">HTML, CSS</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">8</div>
+                        <div class="table-body-cell">PHP</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">9</div>
+                        <div class="table-body-cell">PHP and SQL</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">10</div>
+                        <div class="table-body-cell">JavaScript and jQuery</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="table-body-cell">11</div>
+                        <div class="table-body-cell">jQuery, AJAX, JSON</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-body-cell">12</div>
+                        <div class="table-body-cell">Last Year's final</div>
+                        <div class="table-body-cell">
+                            <a href="{{ url_for('remark') }}">Submit remark request</a>
+                        </div>
+                        <div class="table-body-cell">
+                            <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
+                            <button class = "expl-button" id = "feedback-submit">Submit</button>
+                        </div>
+                    </div>
+
+                    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
