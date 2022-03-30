@@ -16,15 +16,15 @@
 
 		<input type = "checkbox" id = "mobile-nav-toggle"/>
 
-		<div id = "mobile-nav">
+		<!-- <div id = "mobile-nav">
 			<a class = "navbutton mobile-nav-home" href="{{url_for('home')}}">CSCB20</a>
 			<label id = "mobile-nav-label" for = "mobile-nav-toggle">
 				<span></span>
 			</label>
-		</div>
+		</div> -->
 
-		<ul id = "navbuttons" class = "unsigned-navbuttons">
-			<a class = "navbutton" href="{{ url_for('unsignedhome')}}">CSCB20</a>
+		<ul class = "unsigned-navbuttons">
+			<a class = "navbutton mobile-nav-home" href="{{ url_for('unsignedhome')}}">CSCB20</a>
 		</ul>
 
 

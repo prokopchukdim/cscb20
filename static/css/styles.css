@@ -19,8 +19,18 @@ body{
 	height: 100%;
 }
 
+.log-bar{
+	width: 100%;
+	background-color: #2e2817;
+	min-height: 49px;
+	display: flex;
+}
+
 .unsigned-navbuttons{
 	width:100%;
+	display:flex;
+	padding:0;
+	margin:0;
 }
 
 form>label{
@@ -219,6 +229,10 @@ p, ul{
 	text-align: center;
 	transition: all 0.2s;
 
+}
+
+.log-navbutton{
+	width:33%;
 }
 
 .content-wrapper{
@@ -484,7 +498,7 @@ iframe{
 		margin-right: 15px;
 		margin-left: auto;
 	}
-	#navbuttons{
+	#navbuttons {
 		display: none;
 	}
 

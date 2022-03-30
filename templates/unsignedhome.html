@@ -3,11 +3,13 @@
 
 <div class = "content-wrapper">
     <p class="huge-title">CSCB20\\Winter_2022<span class = "underline-animation">_</span></p>
-    <a class = "big-title-left" href="{{ url_for('logout') }}">/ Log out</a>
-    <a class = "big-title-left" href="{{ url_for('login') }}">/ Log in /</a>
-    <a class = "big-title-left" href="{{ url_for('register') }}">Sign up /</a>
-    
     <div class="linebr"></div>
+
+    <div class = "log-bar">
+        <a class = "navbutton log-navbutton" href="{{ url_for('login') }}">Log in</a>
+        <a class = "navbutton log-navbutton" href="{{ url_for('register') }}">Sign up</a>
+        <a class = "navbutton log-navbutton" href="{{ url_for('logout') }}">Log out</a>       
+    </div>
 
     <p class="big-title">\\Course_Information</p>
     <p>Welcome to CSCB20: Introduction to Databases and Web Applications. This course gives an introduction to:</p>
