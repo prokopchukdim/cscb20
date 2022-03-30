@@ -18,7 +18,7 @@ body{
 	width:100%;
 	height: 100%;
 }
-label{
+form>label{
 	color: #fff;
 	font-size: 2.3em;
 	justify-content: center;
@@ -438,19 +438,19 @@ iframe{
 	flex-direction: row;
 }
 
-label{
+#mobile-nav-label{
 	cursor: pointer;
 	float: right;
 	display: none;
 }
-label>span{
+#mobile-nav-label>span{
 	height: 1px;
 	margin: 31px 0px 31px 0px;
 	background-color: #fffcf2;
 	width: 28px;
 	transition: all 0.2s;
 }
-label>span::after, label>span::before{
+#mobile-nav-label>span::after, #mobile-nav-label>span::before{
 	background-color: #fffcf2;
 	display: block;
 	content: "";
@@ -460,11 +460,11 @@ label>span::after, label>span::before{
 	width: 100%;
 	transition: all 0.2s;
 }
-label>span::before{
+#mobile-nav-label>span::before{
 	top: 9px;
 }
 
-label:hover>span, label:hover>span::before, label:hover>span::after{
+#mobile-nav-label:hover>span, #mobile-nav-label:hover>span::before, #mobile-nav-label:hover>span::after{
 	background-color: #d1ad6a;
 }
 
@@ -473,7 +473,7 @@ label:hover>span, label:hover>span::before, label:hover>span::after{
 }
 
 @media screen and (max-width: 1216px){
-	label{
+	#mobile-nav-label{
 		display: inline-flex;
 		float: right;
 		margin-right: 15px;
