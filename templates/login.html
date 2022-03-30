@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -6,8 +6,6 @@
 
 	<title>CSCB20</title>
 
-
-	<!-- Stylesheet -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
@@ -22,7 +20,9 @@
 				<span></span>
 			</label>
 		</div>
-	</nav>	
+	</nav>	 -->
+
+{% extends "template.html" %}
 
 {% block content %}
 {% with messages = get_flashed_messages(with_categories = True) %}
@@ -45,5 +45,5 @@
 	</div>
 {% endblock %}
 
-</body>
-</html>
+<!-- </body>
+</html> -->

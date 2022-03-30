@@ -22,44 +22,18 @@
 				<span></span>
 			</label>
 		</div>
+
+		<ul id = "navbuttons" class = "unsigned-navbuttons">
+			<a class = "navbutton" href="{{ url_for('unsignedhome')}}">CSCB20</a>
+		</ul>
+
+
 	</nav>	
 
-	<div class = "content-wrapper">
-		<p class="huge-title">CSCB20\\Winter_2022<span class = "underline-animation">_</span></p>
-		<a class = "big-title-left" href="{{ url_for('logout') }}">/ Log out</a>
-		<a class = "big-title-left" href="{{ url_for('login') }}">/ Log in /</a>
-		<a class = "big-title-left" href="{{ url_for('register') }}">Sign up /</a>
-		
-		<div class="linebr"></div>
-
-		<p class="big-title">\\Course_Information</p>
-		<p>Welcome to CSCB20: Introduction to Databases and Web Applications. This course gives an introduction to:</p>
-		<p>Databases:</p>
-		<ul>
-			<li>Terminology and applications; </li> 
-			<li>Creating, querying, and updating databases</li>
-		</ul>
-		<p>Web documents and applications:</p>
-		<ul>
-			<li>Static and interactive documents</li>
-			<li>Web servers and dynamic server-generated content</li>
-			<li>Web application development and interface with databases</li>
-		</ul>
-
-		<p class="big-title">\\Prerequisites</p>
-		<p>Experience programming in an imperative language such as Python, Java, or C. This course may not be taken 
-			after - or concurrently with - any C- or D-level CSC course.
-		</p>
-		<p>Exclusion: CSC343H</p>
-			
-		<p class="big-title">\\Course_Delivery</p>
-		<p>Instructor: Dr. Purva R. Gawde</p>
-		<P>Instructor email: <a class = "text-link" href="mailto:purva.gawde@utoronto.ca">purva.gawde@utoronto.ca</a></p>
-		<p>Office Hours: Tuesday 10am to 11am at IC484</p>
-		<p>Lectures: Monday 1-2pm at HLB101</p>
-	</div>
 	{% block content %}
 	{% endblock %}
+
+
 	<div id = "footer">
 		<div class = "footer-wrapper">
 			<p class = "big-title footer-title">CSCB20\\Winter_2022\\Footer<span class = "underline-animation">_</span></p>

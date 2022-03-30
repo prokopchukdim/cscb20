@@ -49,7 +49,7 @@ class Instructor(db.Model):
 @app.route('/home')
 def home():
     pagename = 'home'
-    return render_template('template.html', pagename=pagename)
+    return render_template('unsignedhome.html', pagename=pagename)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -154,6 +154,11 @@ def signuphome():
 @app.route('/remark')
 def remark():
     return render_template('remark.html')
+
+@app.route('/unsignedhome')
+def unsignedhome():
+    pagename = 'home'
+    return render_template('unsignedhome.html', pagename=pagename)
     
 if __name__ == '__main__':
     app.run(debug=True)
