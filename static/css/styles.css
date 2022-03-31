@@ -28,6 +28,7 @@ body{
 	margin-top: 60px;
 }
 
+
 .unsigned-navbuttons{
 	width:100%;
 	display:flex;
@@ -93,8 +94,8 @@ button:hover{
 	height: 100%;
 }
 .login label{
-	color: #573b8a;
-	transform: scale(.6);
+	/* transform: scale(.6); */
+	font-size: 18px;
 }
 
 .text-override{
@@ -186,6 +187,11 @@ p, ul{
 	cursor: pointer;
 }
 
+.log-togglebutton:hover{ 
+/* togglebutton borders make sure size of toggle button stays the same */
+	border: 1px solid #e4a126;
+}
+
 .general-button:active, .log-navbutton:active{
 	transform: perspective(1000px) translate3d(0,0,-100px);
 }
@@ -256,15 +262,20 @@ p, ul{
 	text-align: center;
 	transition: all 0.2s;
 }
-.log-navbutton:first-child{
+.log-navbutton:first-of-type{
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
-.log-navbutton:last-child{
+.log-navbutton:last-of-type{
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
 
+.log-togglebutton{
+	width:50%;
+	border:1px solid #2e2817;
+	/* padding:10px 20px 10px 20px; */
+}
 .content-wrapper{
 	width: 80%;
 	display: block;
@@ -343,6 +354,27 @@ p, ul{
 	width: 100%;
 	margin-bottom: 80px;
 
+}
+
+#student-teacher-wrapper{
+	width: calc(60% + 20px);
+	margin: 0px auto 0px auto;
+	display: flex;
+	height: fit-content;
+	align-items: center;
+	justify-content: center;
+	box-shadow: rgba(39, 37, 22, 0.42) 0px 10px 40px -10px;
+}
+
+#teacher-toggle, #student-toggle{
+	display: none;
+}
+
+#teacher-toggle:checked ~ #teacher-label, #student-toggle:checked ~ #student-label{
+	background-color: #e4a126;
+	color:#2e2817;
+	box-shadow: rgba(39, 37, 22, 0.45) 0px 0px 40px 2px;
+	border: #2e2817 solid 1px;
 }
 
 @keyframes underline-animation{

@@ -30,8 +30,17 @@
         <p class="huge-title">CSCB20\\Register<span class = "underline-animation">_</span></p> 	
 		<div class="linebr"></div>
 		<div class="signup">
+			<div class = "space-br"></div>
 			<form action="register" method = "post">
-					<label for="chk" aria-hidden="true"></label>
+					<!-- <label for="chk" aria-hidden="true"></label> -->
+					<p>\\Type</p>
+					<div id = "student-teacher-wrapper">					
+						<input type = "checkbox" id = "teacher-toggle"/>
+						<label class = "log-navbutton log-togglebutton" id = "teacher-label" for="teacher-toggle">Teacher</label>
+						<input type = "checkbox" id = "student-toggle"/>
+						<label class = "log-navbutton log-togglebutton" id = "student-label" for = "student-toggle">Student</label>
+					</div>
+					<p>\\Details</p>
 					<input type="utorid" id="Utorid" name="Utorid" placeholder="Utorid" required="">
 					<input type="email" id="Email" name="Email" placeholder="Email" required="">
 					<input type="password" id="Password" name="Password" placeholder="Password" required="">
