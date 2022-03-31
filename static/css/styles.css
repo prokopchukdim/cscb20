@@ -180,7 +180,7 @@ p, ul{
 	transform: perspective(1000px);
 }
 
-.general-button:hover{
+.general-button:hover {
 	background-color: #e4a126;
 	color:#2e2817;
 	cursor: pointer;
