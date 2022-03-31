@@ -21,8 +21,8 @@ body{
 
 .log-bar{
 	width: 100%;
-	background-color: #2e2817;
-	min-height: fit-content;
+	/* background-color: #2e2817;  */
+	min-height: fit-content; 
 	display: flex;
 	border-radius: 10px;
 	margin-top: 60px;
@@ -180,16 +180,18 @@ p, ul{
 	transform: perspective(1000px);
 }
 
-.general-button:hover{
+.general-button:hover, .log-navbutton:hover{
 	background-color: #e4a126;
 	color:#2e2817;
 	cursor: pointer;
 }
 
-.general-button:active{
+.general-button:active, .log-navbutton:active{
 	transform: perspective(1000px) translate3d(0,0,-100px);
 }
-
+.log-navbutton:active{
+	box-shadow: rgba(39, 37, 22, 0.7) 0px 0px 40px 2px;
+}
 
 .footer-title{
 	width:100%;
@@ -245,6 +247,22 @@ p, ul{
 
 .log-navbutton{
 	width:33%;
+	background-color: #2e2817;
+	height: auto;
+	padding: 10px;
+	margin: 0;
+	color: #fffcf2;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.2s;
+}
+.log-navbutton:first-child{
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.log-navbutton:last-child{
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .content-wrapper{
