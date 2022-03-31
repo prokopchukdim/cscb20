@@ -32,20 +32,29 @@
 		<div class="signup">
 			<div class = "space-br"></div>
 			<form action="register" method = "post">
-					<!-- <label for="chk" aria-hidden="true"></label> -->
-					<p>\\Type</p>
-					<div id = "student-teacher-wrapper">					
-						<input type = "checkbox" id = "teacher-toggle" onchange="toggleCheck('t')"/>
-						<label class = "log-navbutton log-togglebutton" id = "teacher-label" for="teacher-toggle" >Teacher</label>
-						<input type = "checkbox" id = "student-toggle" onchange="toggleCheck('s')"/>
-						<label class = "log-navbutton log-togglebutton" id = "student-label" for = "student-toggle">Student</label>
-					</div>
-					<p>\\Details</p>
-					<input type="utorid" id="Utorid" name="Utorid" placeholder="Utorid" required="">
-					<input type="email" id="Email" name="Email" placeholder="Email" required="">
-					<input type="password" id="Password" name="Password" placeholder="Password" required="">
-					<button class="general-button" type="register">Sign up</button>
+				<!-- <label for="chk" aria-hidden="true"></label> -->
+				<p>\\Type</p>
+				
+				<div id = "student-instructor-wrapper">					
+					<input type = "checkbox" name = "Instructor" id = "instructor-toggle" onchange="toggleCheck('i')"/>
+					<label class = "log-navbutton log-togglebutton" id = "instructor-label" for="instructor-toggle" >Teacher</label>
+					<input type = "checkbox" name = "Student" id = "student-toggle" checked="checked" onchange="toggleCheck('s')"/>
+					<label class = "log-navbutton log-togglebutton" id = "student-label" for = "student-toggle">Student</label>					
+				</div>
+
+				<p>\\Details</p>
+				<input type="utorid" id="Utorid" name="Utorid" placeholder="Utorid" required="">
+				<input type="email" id="Email" name="Email" placeholder="Email" required="">
+				<input type="password" id="Password" name="Password" placeholder="Password" required="">
+				<button class="general-button" type="register">Sign up</button>
 			</form>
+			{% with messages = get_flashed_messages(with_categories = True) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					<div class = "error-div">{{ category }} - {{ message }}</div>
+				{% endfor %}
+			{% endif %}
+			{% endwith %}
 		</div>
 	</div>
         

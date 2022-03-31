@@ -13,14 +13,15 @@ bcrypt = Bcrypt(app)
 class RegisteredUsers(db.Model):
     __tablename__ = 'RegisteredUsers'
     utorid = db.Column(db.String(20), nullable=False, primary_key=True)
+    usertype = db.Column(db.String(20))
     email = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(20), nullable = False)
-    """ usertype = db.Column(db.String(20)) """
+    
     student = db.relationship('Student', backref='author', lazy=True)
     instructor = db.relationship('Instructor', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"RegisteredUsers('{self.utorid}', '{self.password}')"
+        return f"RegisteredUsers('{self.usertype}','{self.utorid}', '{self.password}')"
 
 class Student(db.Model):
     __tablename__ = 'Student'
@@ -59,11 +60,27 @@ def register():
         utorid = request.form['Utorid']
         email = request.form['Email']
         hashed_pswd = bcrypt.generate_password_hash(request.form['Password'])
+        
+        #Parse user type
+        if request.form.get('Instructor'):
+            usertype = 'instructor'
+        elif request.form.get('Student'):
+            usertype = 'student'
+        else:
+            flash('Please select a user type and try again', 'error')
+            return redirect(url_for('register'))
+
+        #Parse if user already exists
+        if (RegisteredUsers.query.filter_by(utorid=utorid).first()):
+            flash('User already exists. Please use a different utorid', 'error')
+            return redirect(url_for('register'))
+
         user_details =(
             utorid,
+            usertype,
             email,
-            hashed_pswd,
-        )
+            hashed_pswd
+            )
         add_users(user_details)
         return redirect(url_for('login'))
 
@@ -103,7 +120,7 @@ def marks():
 
 
 def add_users(user_details):
-    user = RegisteredUsers(utorid = user_details[0], email = user_details[1], password = user_details[2])
+    user = RegisteredUsers(utorid = user_details[0], usertype = user_details[1], email = user_details[2], password = user_details[3])
     db.session.add(user)
     db.session.commit()
 

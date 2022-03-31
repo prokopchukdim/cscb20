@@ -356,7 +356,7 @@ p, ul{
 
 }
 
-#student-teacher-wrapper{
+#student-instructor-wrapper{
 	width: calc(60% + 20px);
 	margin: 0px auto 0px auto;
 	display: flex;
@@ -366,11 +366,11 @@ p, ul{
 	box-shadow: rgba(39, 37, 22, 0.42) 0px 10px 40px -10px;
 }
 
-#teacher-toggle, #student-toggle{
+#instructor-toggle, #student-toggle{
 	display: none;
 }
 
-#teacher-toggle:checked ~ #teacher-label, #student-toggle:checked ~ #student-label{
+#instructor-toggle:checked ~ #instructor-label, #student-toggle:checked ~ #student-label{
 	background-color: #e4a126;
 	color:#2e2817;
 	box-shadow: rgba(39, 37, 22, 0.45) 0px 0px 40px 2px;

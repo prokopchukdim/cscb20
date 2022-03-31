@@ -1,14 +1,17 @@
+// document.onload() = function() {
+//     let s_tog = document.getElementById("student-toggle");
+//     if (!!s_tog){
+//         s_tog.checked = true;
+//     }
+// }
 
 function toggleCheck(type){
 
-    let t_tog = document.getElementById("teacher-toggle");
-    let t_lbl = document.getElementById("teacher-label");
+    let t_tog = document.getElementById("instructor-toggle");
 
     let s_tog = document.getElementById("student-toggle");
-    let s_lbl = document.getElementById("student-label");
-
     
-    if (t_tog.checked && s_tog.checked && type === 't'){
+    if (t_tog.checked && s_tog.checked && type === 'i'){
         s_tog.checked = false;
     }
 
