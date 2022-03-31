@@ -33,12 +33,10 @@
 			<form action="login" method = "post">
 				<div class = "space-br"></div>
 				<p>\\Type</p>
-				
-				
 				<div id = "student-teacher-wrapper">					
-					<input type = "checkbox" id = "teacher-toggle"/>
-					<label class = "log-navbutton log-togglebutton" id = "teacher-label" for="teacher-toggle">Teacher</label>
-					<input type = "checkbox" id = "student-toggle"/>
+					<input type = "checkbox" id = "teacher-toggle" onchange="toggleCheck('t')"/>
+					<label class = "log-navbutton log-togglebutton" id = "teacher-label" for="teacher-toggle" >Teacher</label>
+					<input type = "checkbox" id = "student-toggle" onchange="toggleCheck('s')"/>
 					<label class = "log-navbutton log-togglebutton" id = "student-label" for = "student-toggle">Student</label>
 				</div>
 
