@@ -83,7 +83,7 @@ def login():
         if 'name' in session:
             print('im here lol')
             flash('already logged in!')
-            return redirect(url_for('home'))
+            return redirect(url_for('login_success', name=session['name']))
         else:
             return render_template('login.html')
 

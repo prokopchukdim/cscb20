@@ -22,8 +22,10 @@ body{
 .log-bar{
 	width: 100%;
 	background-color: #2e2817;
-	min-height: 49px;
+	min-height: fit-content;
 	display: flex;
+	border-radius: 10px;
+	margin-top: 60px;
 }
 
 .unsigned-navbuttons{
@@ -46,7 +48,8 @@ form>label{
 input{
 	width: 60%;
 	height: 20px;
-	background: #e0dede;
+	background: #2e2817;
+	color:#fffcf2;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
@@ -54,6 +57,7 @@ input{
 	border: none;
 	outline: none;
 	border-radius: 5px;
+	box-shadow: rgba(39, 37, 22, 0.42) 0px 10px 40px -10px;
 }
 button{
 	width: 60%;
@@ -71,10 +75,18 @@ button{
 	border-radius: 5px;
 	transition: .2s ease-in;
 	cursor: pointer;
+	padding:0px 10px 0px 10px;
+	box-sizing: content-box;
 }
 button:hover{
 	background: #2e2817;
 }
+
+.error-div{
+	margin: 20px auto;
+	width: fit-content;
+}
+
 .login{
 	position: relative;
 	width:100%;
@@ -126,7 +138,7 @@ p, ul{
 	
 }
 
-#feedback-textarea{
+.feedback-textarea{
 	min-width: 100%;
 	max-width: 100%;
 	box-sizing: border-box;
@@ -151,7 +163,7 @@ p, ul{
 	color:rgba(255,255,255,0.6);
 }
 
-#feedback-submit{
+.feedback-submit{
 	float: right
 }
 

@@ -17,14 +17,14 @@
 		<input type = "checkbox" id = "mobile-nav-toggle"/>
 
 		<div id = "mobile-nav">
-			<a class = "navbutton mobile-nav-home" href="{{ url_for('home') }}">CSCB20</a>
+			<a class = "navbutton mobile-nav-home" href="{{ url_for('login_success', name=session['name']) }}">CSCB20</a>
 			<label id = "mobile-nav-label" for = "mobile-nav-toggle">
 				<span></span>
 			</label>
 		</div>
 				
 		<ul id = "navbuttons">
-			<a class = "navbutton" href="{{ url_for('signuphome')}}">Home</a>
+			<a class = "navbutton" href="{{ url_for('login_success', name=session['name'])}}">Home</a>
             <a class = "navbutton" href="{{ url_for('announcements') }}">Announcements</a>
 			<a class = "navbutton" href="{{ url_for('syllabus') }}">Syllabus</a>
 			<a class = "navbutton" href="{{ url_for('courseteam') }}">Course Team</a>
