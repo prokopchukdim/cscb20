@@ -109,12 +109,12 @@ def login():
         else:
             session['name'] = utorid
             session['type'] = usertype
-            return redirect(url_for('login_success', name=utorid))
+            return redirect(url_for('login_success')) #, name=utorid))
     else:
         if 'name' in session:
             print('im here lol')
             flash('already logged in!')
-            return redirect(url_for('login_success', name=session['name']))
+            return redirect(url_for('login_success')) #, name=session['name']))
         else:
             return render_template('login.html')
 
