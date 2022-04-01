@@ -89,12 +89,26 @@ def login():
     if request.method == 'POST':
         utorid = request.form['utorid']
         pswd = request.form['pswd']
-        user = RegisteredUsers.query.filter_by(utorid=utorid).first()
-        if not user or not bcrypt.check_password_hash(user.password, pswd):
+        
+        if request.form.get('Instructor'):
+            usertype = 'instructor'
+        elif request.form.get('Student'):
+            usertype = 'student'
+        else:
+            flash('Please select a user type and try again', 'error')
+            return redirect(url_for('login'))
+        
+        # user = RegisteredUsers.query.filter_by(utorid=utorid).first()
+        user = db.engine.execute("select * from RegisteredUsers where utorid = :utorid and usertype = :usertype", {'utorid':utorid, 'usertype':usertype}).first()
+        if user:
+            print("There is a user!")
+
+        if not user or not bcrypt.check_password_hash(user['password'], pswd):
             flash('Please check your login details and try again', 'error')
             return render_template('login.html')
         else:
             session['name'] = utorid
+            session['type'] = usertype
             return redirect(url_for('login_success', name=utorid))
     else:
         if 'name' in session:
@@ -176,6 +190,7 @@ def remark():
 def unsignedhome():
     pagename = 'home'
     return render_template('unsignedhome.html', pagename=pagename)
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
+
