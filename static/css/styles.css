@@ -252,7 +252,8 @@ p, ul{
 }
 
 .log-navbutton{
-	width:33%;
+	/* width:33%; */
+	flex-grow: 1;
 	background-color: #2e2817;
 	height: auto;
 	padding: 10px;
