@@ -404,6 +404,9 @@ p, ul{
 	animation-iteration-count: infinite;
 }
 
+.no-top-margin{
+	margin-top: 0;
+}
 /* Styles for Course_Team part*/
 .instructor-wrapper{
 	display: flex;

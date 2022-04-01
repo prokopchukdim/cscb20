@@ -118,9 +118,9 @@ def login():
         else:
             return render_template('login.html')
 
-@app.route('/login_success/<name>')
-def login_success(name):
-    return render_template('login_success.html', name=name)
+@app.route('/login_success') #/<name>')
+def login_success(): #name):
+    return render_template('login_success.html') #, name=name)
 
 @app.route('/logout')
 def logout():

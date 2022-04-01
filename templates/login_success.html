@@ -1,9 +1,32 @@
 {% extends "loginsuccess_temp.html" %}
 {% block content %}
 	<div class = "content-wrapper">
-		<p class="huge-title">Welcome, {{ name }}, to CSCB20\\Winter_2022<span class = "underline-animation">_</span></p>
+		<p class="huge-title">Welcome, {{ session.name }}, to CSCB20\\Winter_2022<span class = "underline-animation">_</span></p>
 
 		<div class="linebr"></div>
+
+		{% if session.type == "student" %}
+			<p class="big-title">\\Student_Pages</p>
+			<p>Welcome {{session.name}}!</p>
+			<p>Feel free to access the following student-specific pages:</p>
+			<div class = "log-bar no-top-margin">
+				<a class = "log-navbutton" href="{{ url_for('feedback') }}">Feedback</a>
+				<a class = "log-navbutton" href="{{ url_for('marks') }}">Marks</a>
+				<a class = "log-navbutton" href="{{ url_for('logout') }}">Log out</a>       
+			</div>
+		{% endif %}
+
+		{% if session.type == "instructor" %}
+			<p class="big-title">\\Instructor_Pages</p>
+			<p>Welcome {{session.name}}!</p>
+			<p>Feel free to access the following instructor-specific pages:</p>
+			<div class = "log-bar no-top-margin">
+				<a class = "log-navbutton" href="{{ url_for('feedback') }}">Feedback</a>
+				<a class = "log-navbutton" href="{{ url_for('marks') }}">Marks</a>
+				<a class = "log-navbutton" href="{{ url_for('logout') }}">Log out</a>       
+			</div>
+		{% endif %}
+
 
 		<p class="big-title">\\Course_Information</p>
 		<p>Welcome to CSCB20: Introduction to Databases and Web Applications. This course gives an introduction to:</p>
