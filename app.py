@@ -18,7 +18,6 @@ class RegisteredUsers(db.Model):
     password = db.Column(db.String(20), nullable = False)
     
     student = db.relationship('Student', backref='author', lazy=True)
-    instructor = db.relationship('Instructor', backref='author', lazy=True)
 
     def __repr__(self):
         return f"RegisteredUsers('{self.usertype}','{self.utorid}', '{self.password}')"
@@ -28,20 +27,9 @@ class Student(db.Model):
     utorid = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'), primary_key=True, nullable=False)
     coursecomponent = db.Column(db.String(100), nullable=False)
     mark = db.Column(db.Integer, nullable = False)
+
     def __repr__(self):
         return f"Student('{self.utorid}', '{self.coursecomponent}', '{self.mark}')"
-
-class Instructor(db.Model):
-    __tablename__ = 'Instructor'
-    utorid = db.Column(db.String(20), db.ForeignKey('Student.utorid'), primary_key = True)
-    s_coursecomponent = db.Column(db.String(20), db.ForeignKey('Student.coursecomponent'), nullable=False)
-    s_mark = db.Column(db.Integer, db.ForeignKey('Student.mark'), nullable=False)
-
-    """ person_id = db.Column(db.Integer, db.ForeignKey('Person.id'), nullable = False) """
-    i_id = db.Column(db.Integer, db.ForeignKey('RegisteredUsers.utorid'), nullable=False)
-    
-    def __repr__(self):
-        return f"Instructor('{self.utorid}', '{self.s_coursecomponent}', '{self.s_mark}')"
 
 
 @app.route('/')
@@ -133,7 +121,7 @@ def entermarks():
         coursecomponent = request.form['coursecomp']
         mark = request.form['mark']
         student_mark_details = (
-            utorid, 
+            utorid,
             coursecomponent, 
             mark
         )
