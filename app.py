@@ -112,7 +112,6 @@ def login():
             return redirect(url_for('login_success')) #, name=utorid))
     else:
         if 'name' in session:
-            print('im here lol')
             flash('already logged in!')
             return redirect(url_for('login_success')) #, name=session['name']))
         else:
@@ -127,6 +126,25 @@ def logout():
     session.pop('name', default = None)
     return redirect(url_for('home'))
 
+@app.route('/entermarks', methods =['GET', 'POST'])
+def entermarks():
+    if request.method == 'GET':
+        return render_template('entermarks.html')
+    else:
+        utorid = request.form['utorid']
+        coursecomponent = request.form['coursecomp']
+        mark = request.form['mark']
+        student_mark_details = (
+            utorid, 
+            coursecomponent, 
+            mark
+        )
+        add_marks(student_mark_details)
+        return redirect(url_for('entermarks'))
+
+@app.route('/viewmarks')
+def viewmarks():
+    return render_template('viewmarks.html')
 
 @app.route('/marks')
 def marks():
@@ -136,6 +154,11 @@ def marks():
 def add_users(user_details):
     user = RegisteredUsers(utorid = user_details[0], usertype = user_details[1], email = user_details[2], password = user_details[3])
     db.session.add(user)
+    db.session.commit()
+
+def add_marks(student_mark_details):
+    student = Student(utorid = student_mark_details[0], coursecomponent = student_mark_details[1], mark = student_mark_details[2], s_id = student_mark_details[3])
+    db.session.add(student)
     db.session.commit()
 
 def query_users():

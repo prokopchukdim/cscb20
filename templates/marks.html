@@ -96,9 +96,11 @@
             {% endif %}
 
             {% if session.type == "instructor" %}
-
-            <p>Nothing here for instructors yet! Whoops!</p>
-
+            <div class = "log-bar no-top-margin">
+				<a class = "log-navbutton" href="{{ url_for('entermarks') }}">Enter Marks</a>
+				<a class = "log-navbutton" href="{{ url_for('viewmarks') }}">View Marks</a>      
+			</div>
+            
             {% endif %}
         </div>
     </div>
