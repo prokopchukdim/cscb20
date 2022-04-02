@@ -25,17 +25,15 @@ class RegisteredUsers(db.Model):
 
 class Student(db.Model):
     __tablename__ = 'Student'
-    utorid = db.Column(db.String(20), primary_key=True)
+    utorid = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'), primary_key=True, nullable=False)
     coursecomponent = db.Column(db.String(100), nullable=False)
     mark = db.Column(db.Integer, nullable = False)
-    s_id = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'))
     def __repr__(self):
         return f"Student('{self.utorid}', '{self.coursecomponent}', '{self.mark}')"
 
 class Instructor(db.Model):
     __tablename__ = 'Instructor'
-    utorid = db.Column(db.String(20), primary_key = True)
-    s_id = db.Column(db.String(20), db.ForeignKey('Student.utorid'), nullable=False)
+    utorid = db.Column(db.String(20), db.ForeignKey('Student.utorid'), primary_key = True)
     s_coursecomponent = db.Column(db.String(20), db.ForeignKey('Student.coursecomponent'), nullable=False)
     s_mark = db.Column(db.Integer, db.ForeignKey('Student.mark'), nullable=False)
 
@@ -43,7 +41,7 @@ class Instructor(db.Model):
     i_id = db.Column(db.Integer, db.ForeignKey('RegisteredUsers.utorid'), nullable=False)
     
     def __repr__(self):
-        return f"Instructor('{self.utorid}', '{self.s_id}', '{self.s_coursecomponent}', '{self.s_mark}')"
+        return f"Instructor('{self.utorid}', '{self.s_coursecomponent}', '{self.s_mark}')"
 
 
 @app.route('/')
@@ -157,7 +155,7 @@ def add_users(user_details):
     db.session.commit()
 
 def add_marks(student_mark_details):
-    student = Student(utorid = student_mark_details[0], coursecomponent = student_mark_details[1], mark = student_mark_details[2], s_id = student_mark_details[3])
+    student = Student(utorid = student_mark_details[0], coursecomponent = student_mark_details[1], mark = student_mark_details[2])
     db.session.add(student)
     db.session.commit()
 
