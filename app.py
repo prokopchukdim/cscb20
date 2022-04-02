@@ -16,7 +16,6 @@ class RegisteredUsers(db.Model):
     usertype = db.Column(db.String(20))
     email = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(20), nullable = False)
-    
     student = db.relationship('Student', backref='author', lazy=True)
 
     def __repr__(self):
@@ -25,7 +24,7 @@ class RegisteredUsers(db.Model):
 class Student(db.Model):
     __tablename__ = 'Student'
     utorid = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'), primary_key=True, nullable=False)
-    coursecomponent = db.Column(db.String(100), nullable=False)
+    coursecomponent = db.Column(db.String(100), nullable=False, primary_key=True)
     mark = db.Column(db.Integer, nullable = False)
 
     def __repr__(self):
@@ -134,6 +133,9 @@ def viewmarks():
 
 @app.route('/marks')
 def marks():
+    utorid = session['name']
+    user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).first()
+    print(user)
     return render_template('marks.html')
 
 
