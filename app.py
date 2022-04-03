@@ -144,13 +144,18 @@ def viewmarks():
     user = db.engine.execute("select * from Student").all()
     return render_template('viewmarks.html', user=user)
 
-@app.route('/marks')
+@app.route('/marks', methods = [ 'GET', 'POST'])
 def marks():
     if session['type'] == 'instructor':
        return render_template('marks.html')
     else:
+        
         utorid = session['name']
         user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).all()
+        if request.method == 'POST':
+            print('jhs')
+        else:
+            print(user[1], user[2])
         return render_template('marks.html', user=user)
 
 
