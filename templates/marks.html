@@ -12,24 +12,21 @@
             <div id="table-header">
                 <div class="table-header-cell">Course Component</div>
                 <div class="table-header-cell">Mark</div>
-                <div class="table-header-cell">Request a remark</div>
-                <!-- <div class="table-header-cell">In Class</div> -->
-                <div class="table-header-cell">Explanation</div>
-                <!-- <div class="table-header-cell">Tutorial Solutions</div> -->
+                <div class="table-header-cell">Request a remark and explanation</div>
             </div>
             
             {% for user in user %}
             <div id="table-body"></div>
                 <div class="table-row">
-                    <div class="table-body-cell">{{ user[1]}}</div>
-                    <div class="table-body-cell">{{ user[2]}}</div>
-                    <div class="table-body-cell">
-                        <a href="{{ url_for('remark') }}">Submit remark request</a>
-                    </div>
-                    <div class="table-body-cell">
-                        <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
-                        <button class = "expl-button" id = "feedback-submit">Submit</button>
-                    </div>
+                        <div class="table-body-cell">{{ user[1]}}</div>
+                        <div class="table-body-cell">{{ user[2]}}</div>
+                        <div class="table-body-cell">
+                            <form>
+                                <input type="remark" name="remark" placeholder="Please provide explanation" required="">
+				                <button class = "general-button">Submit</button>
+                            </form>
+                            
+                        </div>
                 </div>
             {% endfor %}
 
@@ -41,7 +38,8 @@
             {% if session.type == "instructor" %}
             <div class = "log-bar no-top-margin">
 				<a class = "log-navbutton" href="{{ url_for('entermarks') }}">Enter Marks</a>
-				<a class = "log-navbutton" href="{{ url_for('viewmarks') }}">View Marks</a>      
+                <a class = "log-navbutton" href="{{ url_for('viewmarks') }}">View Marks</a>
+                <a class = "log-navbutton" href="{{ url_for('remark') }}">View Remark Requests</a>        
 			</div>
             
             {% endif %}

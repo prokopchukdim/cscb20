@@ -16,7 +16,9 @@ class RegisteredUsers(db.Model):
     usertype = db.Column(db.String(20))
     email = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(20), nullable = False)
+
     student = db.relationship('Student', backref='author', lazy=True)
+    remark = db.relationship('Remark', backref='author', lazy=True)
 
     def __repr__(self):
         return f"RegisteredUsers('{self.usertype}','{self.utorid}', '{self.password}')"
@@ -26,10 +28,20 @@ class Student(db.Model):
     utorid = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'), primary_key=True, nullable=False)
     coursecomponent = db.Column(db.String(100), nullable=False, primary_key=True)
     mark = db.Column(db.Integer, nullable = False)
+    
 
     def __repr__(self):
         return f"Student('{self.utorid}', '{self.coursecomponent}', '{self.mark}')"
 
+class Remark(db.Model):
+    __tablename__ = 'Remark'
+    utorid = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'), primary_key=True, nullable=False)
+    coursecomponent = db.Column(db.String(100), nullable=False, primary_key=True)
+    mark = db.Column(db.Integer, nullable = False)
+    remark = db.Column(db.String(300), nullable=False)
+
+    def __repr__(self):
+        return f"Remark('{self.utorid}', '{self.coursecomponent}', '{self.mark}', '{self.remark}')"
 
 @app.route('/')
 @app.route('/home')
@@ -135,11 +147,30 @@ def viewmarks():
 @app.route('/marks')
 def marks():
     if session['type'] == 'instructor':
-        return render_template('marks.html')
+       return render_template('marks.html')
     else:
         utorid = session['name']
         user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).all()
         return render_template('marks.html', user=user)
+
+
+@app.route('/remark', methods =['GET', 'POST'])
+def remark():
+    if request.method == 'GET':
+        return render_template('remark.html')
+    else:
+        utorid = request.form['utorid']
+        coursecomponent = request.form['coursecomp']
+        mark = request.form['mark']
+        remark = request.form['remark']
+        student_remark_details = (
+            utorid,
+            coursecomponent, 
+            mark,
+            remark
+        )
+        add_remarks(student_remark_details)
+        return redirect(url_for('remark'))
 
 
 def add_users(user_details):
@@ -151,6 +182,12 @@ def add_marks(student_mark_details):
     student = Student(utorid = student_mark_details[0], coursecomponent = student_mark_details[1], mark = student_mark_details[2])
     db.session.add(student)
     db.session.commit()
+
+def add_remarks(student_remark_details):
+    student = Remark(utorid = student_remark_details[0], coursecomponent = student_remark_details[1], mark = student_remark_details[2], remark = student_remark_details[3])
+    db.session.add(student)
+    db.session.commit()
+
 
 def query_users():
     query_users = RegisteredUsers.query.all()
@@ -196,9 +233,6 @@ def signuphome():
     pagename = 'signuphome'
     return render_template('home.html', pagename=pagename)
 
-@app.route('/remark')
-def remark():
-    return render_template('remark.html')
 
 @app.route('/unsignedhome')
 def unsignedhome():
