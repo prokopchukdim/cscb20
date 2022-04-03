@@ -13,132 +13,19 @@
                     <div class="table-header-cell">Mark</div>
 
                 </div>
+
+                {% for user in user %}
                 <div id="table-body">
 
                     <div class="table-row">
-                        <div class="table-body-cell">1</div>
-                        <div class="table-body-cell">Introduction, Databases background</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
+                        <div class="table-body-cell">{{ user[0] }}</div>
+                        <div class="table-body-cell">{{ user[1] }}</div>
+                        <div class="table-body-cell">{{ user[2] }}</div>
                         <div class="table-body-cell"></div>
                     </div>
-
-                    <div class="table-row">
-                        <div class="table-body-cell">2</div>
-                        <div class="table-body-cell">Relational Model, Relational Algebra</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-body-cell">3</div>
-                        <div class="table-body-cell">Relational Algebra Queries and SQL Query Language</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-body-cell">4</div>
-                        <div class="table-body-cell">SQL and MySQL</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-
-
-                    <div class="table-row">
-                        <div class="table-body-cell">5</div>
-                        <div class="table-body-cell">MySQL Queries, Creating and Editing Tables</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-                    
-                    <div class="table-row">
-                        <div class="table-body-cell">6</div>
-                        <div class="table-body-cell">MySQL Outer Joins, Views, NULL, string functions, HTML</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-                    
-                    <div class="table-row">
-                        <div class="table-body-cell">7</div>
-                        <div class="table-body-cell">HTML, CSS</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-body-cell">8</div>
-                        <div class="table-body-cell">PHP</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-                    
-                    <div class="table-row">
-                        <div class="table-body-cell">9</div>
-                        <div class="table-body-cell">PHP and SQL</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-                    
-                    <div class="table-row">
-                        <div class="table-body-cell">10</div>
-                        <div class="table-body-cell">JavaScript and jQuery</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-
-                    <div class="table-row">
-                        <div class="table-body-cell">11</div>
-                        <div class="table-body-cell">jQuery, AJAX, JSON</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-                    
-                    <div class="table-row">
-                        <div class="table-body-cell">12</div>
-                        <div class="table-body-cell">Last Year's final</div>
-                        <div class="table-body-cell">
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Presentation Slides</a>
-                            <a href="{{ url_for('static', filename = 'handout.pdf')}}" target="_blank">Handout</a>
-                        </div>
-
-                    </div>
-
-                    
-
-                    </div>
+                </div>
+                {% endfor %}
+                
                 </div>
             </div>
         </div>

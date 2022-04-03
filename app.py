@@ -129,14 +129,17 @@ def entermarks():
 
 @app.route('/viewmarks')
 def viewmarks():
-    return render_template('viewmarks.html')
+    user = db.engine.execute("select * from Student").all()
+    return render_template('viewmarks.html', user=user)
 
 @app.route('/marks')
 def marks():
-    utorid = session['name']
-    user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).first()
-    print(user)
-    return render_template('marks.html')
+    if session['type'] == 'instructor':
+        return render_template('marks.html')
+    else:
+        utorid = session['name']
+        user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).all()
+        return render_template('marks.html', user=user)
 
 
 def add_users(user_details):

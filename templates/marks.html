@@ -6,9 +6,9 @@
         <div class="space-br"></div>
         
         {% if session.type == "student" %}
-        
+        <p class="big-title">Hi, {{ session.name }}, here are your marks</p>
+        <div class="space-br"></div>
         <div id="table">
-            
             <div id="table-header">
                 <div class="table-header-cell">Course Component</div>
                 <div class="table-header-cell">Mark</div>
@@ -17,11 +17,12 @@
                 <div class="table-header-cell">Explanation</div>
                 <!-- <div class="table-header-cell">Tutorial Solutions</div> -->
             </div>
-            <div id="table-body">
-
+            
+            {% for user in user %}
+            <div id="table-body"></div>
                 <div class="table-row">
-                    <div class="table-body-cell">Assignment 1</div>
-                    <div class="table-body-cell">{{ session.name }}</div>
+                    <div class="table-body-cell">{{ user[1]}}</div>
+                    <div class="table-body-cell">{{ user[2]}}</div>
                     <div class="table-body-cell">
                         <a href="{{ url_for('remark') }}">Submit remark request</a>
                     </div>
@@ -30,67 +31,9 @@
                         <button class = "expl-button" id = "feedback-submit">Submit</button>
                     </div>
                 </div>
-                <div class="table-row">
-                    <div class="table-body-cell">Assignment 2</div>
-                    <div class="table-body-cell">Rel</div>
-                    <div class="table-body-cell">
-                        <a href="{{ url_for('remark') }}">Submit remark request</a>
-                    </div>
-                    <div class="table-body-cell">
-                        <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
-                        <button class = "expl-button" id = "feedback-submit">Submit</button>
-                    </div>
-                </div>
+            {% endfor %}
 
-                <div class="table-row">
-                    <div class="table-body-cell">Assignment 3</div>
-                    <div class="table-body-cell">Re</div>
-                    <div class="table-body-cell">
-                        <a href="{{ url_for('remark') }}">Submit remark request</a>
-                    </div>
-                    <div class="table-body-cell">
-                        <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
-                        <button class = "expl-button" id = "feedback-submit">Submit</button>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-body-cell">Midterm exam</div>
-                    <div class="table-body-cell">SQL</div>
-                    <div class="table-body-cell">
-                        <a href="{{ url_for('remark') }}">Submit remark request</a>
-                    </div>
-                    <div class="table-body-cell">
-                        <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
-                        <button class = "expl-button" id = "feedback-submit">Submit</button>
-                    </div>
-                </div>
-
-
-                <div class="table-row">
-                    <div class="table-body-cell">Final Exam</div>
-                    <div class="table-body-cell">MySQ</div>
-                    <div class="table-body-cell">
-                        <a href="{{ url_for('remark') }}">Submit remark request</a>
-                    </div>
-                    <div class="table-body-cell">
-                        <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
-                        <button class = "expl-button" id = "feedback-submit">Submit</button>
-                    </div>
-                </div>
                 
-                
-                <div class="table-row">
-                    <div class="table-body-cell">Tutorial Attendance</div>
-                    <div class="table-body-cell">MySQ</div>
-                    <div class="table-body-cell">
-                        <a href="{{ url_for('remark') }}">Submit remark request</a>
-                    </div>
-                    <div class="table-body-cell">
-                        <textarea id = "explanation-textarea" placeholder="Please provide explanation"></textarea>
-                        <button class = "expl-button" id = "feedback-submit">Submit</button>
-                    </div>
-                </div>
                 
             </div>
             {% endif %}
