@@ -43,6 +43,19 @@ class Remark(db.Model):
     def __repr__(self):
         return f"Remark('{self.utorid}', '{self.coursecomponent}', '{self.mark}', '{self.remark}')"
 
+class Feedback(db.Model):
+    __tablename__ = 'Feedback'
+    id = db.Column(db.Integer, primary_key = True)
+    q1 = db.Column(db.String(300), nullable = False)
+    q2 = db.Column(db.String(300), nullable = False)
+    q3 = db.Column(db.String(300), nullable = False)
+    q4 = db.Column(db.String(300), nullable = False)
+    date_sent = db.Column(db.DateTime, nullable = False, default = datetime.now())
+    instructor_id = db.Column(db.Integer, nullable = False)
+
+    def __repr__(self):
+        return f"Feedback('{self.id}', '{self.q1}', '{self.q2}', '{self.q3}', '{self.q4}', '{self.date_sent}', '{self.instructor_id}')"
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -198,6 +211,11 @@ def query_users():
     query_users = RegisteredUsers.query.all()
     return query_users
 
+def query_instructors():
+    query_instructors = RegisteredUsers.query.filter_by(usertype = 'instructor')
+    query_instructors = enumerate(query_instructors)
+    return query_instructors
+
 @app.route('/announcements')
 def announcements():
     pagename = 'announcements'
@@ -213,10 +231,12 @@ def courseteam():
     pagename = 'courseteam'
     return render_template('courseteam.html', pagename=pagename)
 
-@app.route('/feedback')
+@app.route('/feedback', methods = ['GET', 'POST'])
 def feedback():
     pagename = 'feedback'
-    return render_template('feedback.html', pagename=pagename)
+    if request.method == 'GET':
+        query_instructors_result = query_instructors()
+        return render_template('feedback.html', pagename=pagename, query_instructors_result = query_instructors_result)
 
 @app.route('/lectut')
 def lectut():
