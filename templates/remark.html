@@ -1,7 +1,7 @@
 {% extends "loginsuccess_temp.html" %}
 {% block content %}
         <div class = "content-wrapper">
-            <p class="big-title">Here are your students' marks<span class = "underline-animation">_</span></p>
+            <p class="big-title">Remark Requests<span class = "underline-animation">_</span></p>
             <div class="linebr"></div>
             <div class="space-br"></div>
 
@@ -11,6 +11,7 @@
                     <div class="table-header-cell">Student utorid</div>
                     <div class="table-header-cell">Course component</div>
                     <div class="table-header-cell">Mark</div>
+                    <div class="table-header-cell">Remark request & explanation</div>
 
                 </div>
 
@@ -21,7 +22,7 @@
                         <div class="table-body-cell">{{ user[0] }}</div>
                         <div class="table-body-cell">{{ user[1] }}</div>
                         <div class="table-body-cell">{{ user[2] }}</div>
-                        <div class="table-body-cell"></div>
+                        <div class="table-body-cell">{{ user[3] }}</div>
                     </div>
                 </div>
                 {% endfor %}

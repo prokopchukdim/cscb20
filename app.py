@@ -144,7 +144,7 @@ def viewmarks():
     user = db.engine.execute("select * from Student").all()
     return render_template('viewmarks.html', user=user)
 
-@app.route('/marks', methods = [ 'GET', 'POST'])
+@app.route('/marks')
 def marks():
     if session['type'] == 'instructor':
        return render_template('marks.html')
@@ -152,31 +152,31 @@ def marks():
         
         utorid = session['name']
         user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).all()
-        if request.method == 'POST':
-            print('jhs')
-        else:
-            print(user[1], user[2])
         return render_template('marks.html', user=user)
 
 
-@app.route('/remark', methods =['GET', 'POST'])
+@app.route('/remark')
 def remark():
+    user = db.engine.execute("select * from Remark").all()
+    return render_template('remark.html', user=user)
+
+@app.route('/studentremark', methods = ['GET', 'POST'])
+def studentremark():
     if request.method == 'GET':
-        return render_template('remark.html')
+        return render_template('studentremark.html')
     else:
-        utorid = request.form['utorid']
-        coursecomponent = request.form['coursecomp']
-        mark = request.form['mark']
+        utorid = session['name']
+        coursecomponent = 'dr' #need to fix this
+        mark = 45 #need to fix
         remark = request.form['remark']
-        student_remark_details = (
+        student_mark_details = (
             utorid,
             coursecomponent, 
             mark,
             remark
         )
-        add_remarks(student_remark_details)
-        return redirect(url_for('remark'))
-
+        add_remarks(student_mark_details)
+        return redirect(url_for('studentremark'))
 
 def add_users(user_details):
     user = RegisteredUsers(utorid = user_details[0], usertype = user_details[1], email = user_details[2], password = user_details[3])
