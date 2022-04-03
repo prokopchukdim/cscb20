@@ -17,22 +17,46 @@
             
             {% for user in user %}
             <div id="table-body"></div>
+            
                 <div class="table-row">
-                        <div class="table-body-cell">{{ user[1]}}</div>
-                        <div class="table-body-cell">{{ user[2]}}</div>
+
+                   <!-- Non-css classes required for identifiication in JS -->
+                    <div class="table-body-cell remark-cell-1">{{ user[1]}}</div>
+                    <div class="table-body-cell remark-cell-2">{{ user[2]}}</div>
+
+                    <div class="table-body-cell"> 
+                        <form action="studentremark" method = "post">
+                            <input type="remark" name="remark" placeholder="Please type an explanation..." required="">
+                            <input class = "hidden-input remark-input-1" name = "remark-input-1" value = "">
+                            <input class = "hidden-input remark-input-2" name = "remark-input-2" value = "">
+                            <button type = "submit" class = "general-button">Submit</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </form>
+            {% endfor %}
+
+            <!-- {% for user in user %}
+            <div id="table-body"></div>
+            
+                <div class="table-row">
+                    
+                        <div class="table-body-cell remark-cell-1">{{ user[1]}}</div>
+                        <div class="table-body-cell remark-cell-2">{{ user[2]}}</div>
                         <div class="table-body-cell">
-                            <form action="studentremark" method = "post">
-                                <input type="remark" name="remark" placeholder="Please provide explanation" required="">
+                            <form action="studentremark" method = "post"></form>
+                                <input type="remark" name="remark" placeholder="Please provide an explanation..." required="">
 				                <button class = "general-button">Submit</button>
                             </form>
                             
                         </div>
+                    
                 </div>
-            {% endfor %}
-
+            
+            {% endfor %} -->
                 
-                
-            </div>
+        </div>
             {% endif %}
 
             {% if session.type == "instructor" %}

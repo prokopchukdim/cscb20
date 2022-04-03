@@ -511,6 +511,10 @@ iframe{
 	border-radius: 10px;
 }
 
+.hidden-input{
+	display: none;
+}
+
 /*mobile code*/
 
 #mobile-nav-toggle{
@@ -626,7 +630,7 @@ iframe{
 		margin-top: 30px;
 	}
 
-	body, .small-title, #feedback-textarea, .general-button{
+	body, .small-title, #feedback-textarea, .general-button, ::placeholder{
 		font-size: 14px;
 	}
 
@@ -669,14 +673,14 @@ iframe{
 		font-size: 14px;
 	}
 
-	.table-body-cell{
+	.table-body-cell, ::placeholder{
 		font-size: 10px;
 	}
 }
 
 /* For the thinnest of devices */
 @media screen and (max-width: 376px){
-	body, .small-title, #feedback-textarea, .general-button{
+	body, .small-title, #feedback-textarea, .general-button {
 		font-size: 12px;
 	}
 	

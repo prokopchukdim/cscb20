@@ -110,8 +110,8 @@ def login():
         
         # user = RegisteredUsers.query.filter_by(utorid=utorid).first()
         user = db.engine.execute("select * from RegisteredUsers where utorid = :utorid and usertype = :usertype", {'utorid':utorid, 'usertype':usertype}).first()
-        if user:
-            print("There is a user!")
+        # if user:
+        #     print("There is a user!")
 
         if not user or not bcrypt.check_password_hash(user['password'], pswd):
             flash('Please check your login details and try again', 'error')
@@ -179,8 +179,8 @@ def studentremark():
         return render_template('studentremark.html')
     else:
         utorid = session['name']
-        coursecomponent = 'dr' #need to fix this
-        mark = 45 #need to fix
+        coursecomponent = request.form['remark-input-1'] #need to fix this
+        mark = request.form['remark-input-2'] #need to fix
         remark = request.form['remark']
         student_mark_details = (
             utorid,
