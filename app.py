@@ -135,6 +135,7 @@ def login_success(): #name):
 @app.route('/logout')
 def logout():
     session.pop('name', default = None)
+    session.pop('type', default = None)
     return redirect(url_for('home'))
 
 @app.route('/entermarks', methods =['GET', 'POST'])
