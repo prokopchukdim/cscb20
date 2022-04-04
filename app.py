@@ -61,6 +61,7 @@ class Feedback(db.Model):
 @app.route('/home')
 def home():
     pagename = 'home'
+    session.clear()
     return render_template('unsignedhome.html', pagename=pagename)
 
 #code for registration page
