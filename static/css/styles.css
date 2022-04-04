@@ -57,6 +57,7 @@ input{
 	padding: 10px;
 	border: none;
 	outline: none;
+	font-size: 20px;
 	border-radius: 10px;
 	box-shadow: rgba(39, 37, 22, 0.42) 0px 10px 40px -10px;
 }
@@ -69,7 +70,7 @@ button{
 	color: #fff;
 	background: #2e2817;
 	font-size: 1em;
-	font-weight: bold;
+	/* font-weight: bold; */
 	margin-top: 20px;
 	outline: none;
 	border: none;
@@ -515,6 +516,10 @@ iframe{
 	display: none;
 }
 
+.number-input{
+	width:33px;
+	overflow: visible;
+}
 /*mobile code*/
 
 #mobile-nav-toggle{
@@ -638,8 +643,11 @@ iframe{
 		font-size: 16px;
 	}
 
-	.table-body-cell{
+	.table-body-cell, .table-body-cell > form > input{
 		font-size: 12px;
+	}
+	.number-input{
+		width:22px;
 	}
 
 	.footer-tiny{
@@ -673,8 +681,12 @@ iframe{
 		font-size: 14px;
 	}
 
-	.table-body-cell, ::placeholder{
+	.table-body-cell, ::placeholder, .table-body-cell > form > input{
 		font-size: 10px;
+	}
+
+	.general-button{
+		min-width: 100px;
 	}
 }
 
