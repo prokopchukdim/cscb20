@@ -51,7 +51,7 @@ class Feedback(db.Model):
     q3 = db.Column(db.String(300), nullable = False)
     q4 = db.Column(db.String(300), nullable = False)
     date_sent = db.Column(db.DateTime, nullable = False, default = datetime.now())
-    instructor_id = db.Column(db.Integer, nullable = False)
+    instructor_id = db.Column(db.String(20), db.ForeignKey('RegisteredUders.utorid'), nullable = False)
 
     def __repr__(self):
         return f"Feedback('{self.id}', '{self.q1}', '{self.q2}', '{self.q3}', '{self.q4}', '{self.date_sent}', '{self.instructor_id}')"

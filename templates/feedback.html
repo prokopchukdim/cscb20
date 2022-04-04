@@ -9,18 +9,22 @@
         {% if session.type == "student" %}
         <p>We're always looking to improve the course, and that's only possible with your feedback!</p>
 
-        <label for="instructor">Choose an instructor you want to send your feedback to:</label>
-        <select name="instructor" id="instructor">
+        
+
+        <form action="feedback" method="post">
+            <p>Choose an instructor you want to send your feedback to:</p>
+            <select name="instructor" id="instructor">
             {% for User in query_instructors_result %}
-            <option value="{{User[0]}}">{{User[1].utorid}}</option>
+                <option value="{{User[0]}}">{{User[1].utorid}}</option>
             {% endfor %}
         </select>
-
-        <textarea class = "feedback-textarea" placeholder="What do you like about the instructor teaching?"></textarea>
-        <textarea class = "feedback-textarea" placeholder="What do you recommend the instructor to do to improve their teaching?"></textarea>
-        <textarea class = "feedback-textarea" placeholder="What do you like about the labs?"></textarea>
-        <textarea class = "feedback-textarea" placeholder="What do you recommend the lab instructors to do to improve their lab teaching?"></textarea>
-        <button class = "general-button feedback-submit">Submit</button>
+            <textarea class= "feedback-textarea" type="text" name="q1" placeholder="What do you like about the instructor teaching?" required=></textarea>
+            <textarea class= "feedback-textarea" type="text" name="q2" placeholder="What do you recommend the instructor to do to improve their teaching?" required></textarea>
+            <textarea class= "feedback-textarea" type="text" name="q3" placeholder="What do you like about the labs?" required></textarea>
+            <textarea class= "feedback-textarea" type="text" name="q4" placeholder="What do you recommend the lab instructors to do to improve their lab teaching?" required></textarea>
+            <input class= "general-button feedback-submit" type="submit" value ="Submit">
+        </form>
+    
         {% endif %}
 
         {% if session.type == "instructor" %}
