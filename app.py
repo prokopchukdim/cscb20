@@ -38,7 +38,7 @@ class Remark(db.Model):
     utorid = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'), primary_key=True, nullable=False)
     coursecomponent = db.Column(db.String(100), nullable=False, primary_key=True)
     mark = db.Column(db.Integer, nullable = False)
-    remark = db.Column(db.String(300), nullable=False)
+    remark = db.Column(db.String(300), primary_key=True, nullable=False)
     remarkstatus = db.Column(db.String(20), nullable=False)
 
     def __repr__(self):
@@ -217,14 +217,19 @@ def studentremark():
         mark = request.form['remark-input-2'] 
         remark = request.form['remark']
         remarkstatus = request.form['remark-input-3']
-        student_mark_details = (
-            utorid,
-            coursecomponent, 
-            mark,
-            remark, 
-            remarkstatus
-        )
-        add_remarks(student_mark_details)
+        remarkexists = db.engine.execute("select * from Remark where utorid = :utorid and coursecomponent = :coursecomponent", {'utorid':utorid, 'coursecomponent':coursecomponent}).first()
+        if remarkexists:
+            db.engine.execute("UPDATE Remark SET remark = :remark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':remarkexists[2], 'utorid':remarkexists[0], 'coursecomp':remarkexists[1], 'remarkstatus': remarkexists[4], 'remark': remark})
+            
+        else:
+            student_mark_details = (
+                utorid,
+                coursecomponent, 
+                mark,
+                remark, 
+                remarkstatus
+            )
+            add_remarks(student_mark_details)
         return redirect(url_for('studentremark'))
 
 def add_users(user_details):
