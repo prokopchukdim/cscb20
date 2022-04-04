@@ -15,9 +15,9 @@
             <p>Choose an instructor you want to send your feedback to:</p>
             <select name="instructor" id="instructor">
             {% for User in query_instructors_result %}
-                <option value="{{User[0]}}">{{User[1].utorid}}</option>
+                <option value="{{User[1].utorid}}">{{User[1].utorid}}</option>
             {% endfor %}
-        </select>
+            </select>
             <textarea class= "feedback-textarea" type="text" name="q1" placeholder="What do you like about the instructor teaching?" required=></textarea>
             <textarea class= "feedback-textarea" type="text" name="q2" placeholder="What do you recommend the instructor to do to improve their teaching?" required></textarea>
             <textarea class= "feedback-textarea" type="text" name="q3" placeholder="What do you like about the labs?" required></textarea>

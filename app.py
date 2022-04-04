@@ -46,7 +46,7 @@ class Remark(db.Model):
 
 class Feedback(db.Model):
     __tablename__ = 'Feedback'
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     q1 = db.Column(db.String(300), nullable = False)
     q2 = db.Column(db.String(300), nullable = False)
     q3 = db.Column(db.String(300), nullable = False)
@@ -262,6 +262,11 @@ def query_instructors():
     query_instructors = enumerate(query_instructors)
     return query_instructors
 
+def add_feedback(feedback_details):
+    feedback = Feedback(q1 = feedback_details[0], q2 = feedback_details[1], q3 = feedback_details[2], q4 = feedback_details[3], instructor_id = feedback_details[4])
+    db.session.add(feedback)
+    db.session.commit()
+
 @app.route('/announcements')
 def announcements():
     pagename = 'announcements'
@@ -280,8 +285,23 @@ def courseteam():
 @app.route('/feedback', methods = ['GET', 'POST'])
 def feedback():
     pagename = 'feedback'
+    query_instructors_result = query_instructors()
     if request.method == 'GET':
-        query_instructors_result = query_instructors()
+        return render_template('feedback.html', pagename=pagename, query_instructors_result = query_instructors_result)
+    else:
+        instructor = request.form['instructor']
+        q1 = request.form['q1']
+        q2 = request.form['q2']
+        q3 = request.form['q3']
+        q4 = request.form['q4']
+        feedback_details =(
+            q1,
+            q2,
+            q3,
+            q4,
+            instructor
+        )
+        add_feedback(feedback_details)
         return render_template('feedback.html', pagename=pagename, query_instructors_result = query_instructors_result)
 
 @app.route('/lectut')
