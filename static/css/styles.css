@@ -10,7 +10,7 @@ body{
 }
 
   
-  #chk{
+#chk{
 	display: none;
 }
 .signup{
@@ -379,6 +379,19 @@ p, ul{
 	border: #2e2817 solid 1px;
 }
 
+select{
+	display: block;
+	background-color:#2e2817;
+	color: #fffcf2;
+	margin: 15px auto 20px auto;
+	min-width: 150px;
+	width: 100%;
+	min-height: 28px;
+	border-radius: 10px;
+	border: 0px;
+	font-size: 18px;
+}
+
 @keyframes underline-animation{
 	0% {
 		color: #2e2817;
@@ -409,6 +422,7 @@ p, ul{
 .no-top-margin{
 	margin-top: 0;
 }
+
 /* Styles for Course_Team part*/
 .instructor-wrapper{
 	display: flex;
@@ -635,11 +649,11 @@ iframe{
 		margin-top: 30px;
 	}
 
-	body, .small-title, #feedback-textarea, .general-button, ::placeholder{
+	body, .small-title, #feedback-textarea, .general-button, #table-header, ::placeholder, select, input{
 		font-size: 14px;
 	}
 
-	.text-override, #table-header{
+	.text-override {
 		font-size: 16px;
 	}
 
@@ -681,18 +695,18 @@ iframe{
 		font-size: 14px;
 	}
 
-	.table-body-cell, ::placeholder, .table-body-cell > form > input{
+	.table-body-cell, ::placeholder, .table-body-cell > form > input, select, .general-button, input{
 		font-size: 10px;
 	}
 
 	.general-button{
-		min-width: 100px;
+		min-width: 70px;
 	}
 }
 
 /* For the thinnest of devices */
 @media screen and (max-width: 376px){
-	body, .small-title, #feedback-textarea, .general-button {
+	body, .small-title, #feedback-textarea {
 		font-size: 12px;
 	}
 	
