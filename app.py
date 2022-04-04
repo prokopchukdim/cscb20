@@ -153,10 +153,24 @@ def entermarks():
         add_marks(student_mark_details)
         return redirect(url_for('entermarks'))
 
-@app.route('/viewmarks')
+@app.route('/viewmarks', methods = ['GET', 'POST'])
 def viewmarks():
-    user = db.engine.execute("select * from Student ORDER BY utorid, coursecomponent").all()
-    return render_template('viewmarks.html', user=user)
+    if request.method == 'GET':
+        user = db.engine.execute("select * from Student ORDER BY utorid, coursecomponent").all()
+        return render_template('viewmarks.html', user=user)
+    else:
+        utorid = request.form['utorid']
+        coursecomponent = request.form['coursecomp']
+        mark = request.form['remark']
+        remarkstatus = 'closed'
+        student_mark_details = (
+            utorid,
+            coursecomponent, 
+            mark,
+            remarkstatus
+        )
+        change_marks(student_mark_details)
+        return redirect(url_for('viewmarks'))
 
 @app.route('/remark', methods = ['GET', 'POST'])
 def remark():
