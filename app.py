@@ -285,8 +285,8 @@ def courseteam():
 @app.route('/feedback', methods = ['GET', 'POST'])
 def feedback():
     pagename = 'feedback'
-    query_instructors_result = query_instructors()
     if request.method == 'GET':
+        query_instructors_result = query_instructors()
         return render_template('feedback.html', pagename=pagename, query_instructors_result = query_instructors_result)
     else:
         instructor = request.form['instructor']
@@ -302,7 +302,7 @@ def feedback():
             instructor
         )
         add_feedback(feedback_details)
-        return render_template('feedback.html', pagename=pagename, query_instructors_result = query_instructors_result)
+        return render_template('feedback_success.html', pagename = pagename)
 
 @app.route('/lectut')
 def lectut():
