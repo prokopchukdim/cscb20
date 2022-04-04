@@ -63,6 +63,7 @@ def home():
     pagename = 'home'
     return render_template('unsignedhome.html', pagename=pagename)
 
+#code for registration page
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     if request.method == 'GET':
@@ -95,6 +96,7 @@ def register():
         add_users(user_details)
         return redirect(url_for('login'))
 
+#code for log in page
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -111,8 +113,6 @@ def login():
         
         # user = RegisteredUsers.query.filter_by(utorid=utorid).first()
         user = db.engine.execute("select * from RegisteredUsers where utorid = :utorid and usertype = :usertype", {'utorid':utorid, 'usertype':usertype}).first()
-        # if user:
-        #     print("There is a user!")
 
         if not user or not bcrypt.check_password_hash(user['password'], pswd):
             flash('Please check your login details and try again', 'error')
@@ -128,16 +128,19 @@ def login():
         else:
             return render_template('login.html')
 
+#code for page after a successful log in 
 @app.route('/login_success') #/<name>')
 def login_success(): #name):
     return render_template('login_success.html') #, name=name)
 
+#code for logout page
 @app.route('/logout')
 def logout():
     session.pop('name', default = None)
     session.pop('type', default = None)
     return redirect(url_for('home'))
 
+#code for entering marks page
 @app.route('/entermarks', methods =['GET', 'POST'])
 def entermarks():
     if request.method == 'GET':
@@ -154,6 +157,7 @@ def entermarks():
         add_marks(student_mark_details)
         return redirect(url_for('entermarks'))
 
+#code for viewing marks as an instructor page
 @app.route('/viewmarks', methods = ['GET', 'POST'])
 def viewmarks():
     if request.method == 'GET':
@@ -173,10 +177,11 @@ def viewmarks():
         change_marks(student_mark_details)
         return redirect(url_for('viewmarks'))
 
+#code for remark page
 @app.route('/remark', methods = ['GET', 'POST'])
 def remark():
     if request.method == 'GET':
-        user = db.engine.execute("select * from Remark").all()
+        user = db.engine.execute("select * from Remark ORDER BY utorid, coursecomponent").all()
         return render_template('remark.html', user=user)
     else:
         utorid = request.form['utorid']
@@ -192,6 +197,7 @@ def remark():
         change_marks(student_mark_details)
         return redirect(url_for('remark'))
 
+#Code for general marks menu page. Gives instructors navigation to other pages, students ability to see own marks.
 @app.route('/marks')
 def marks():
     if session['type'] == 'instructor':
@@ -201,13 +207,14 @@ def marks():
         user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).all()
         return render_template('marks.html', user=user)
 
-
+#Allows students to see the status of their remark requests
 @app.route('/remarkstatus')
 def remarkstatus():
     utorid = session['name']
     user = db.engine.execute("select * from Remark where utorid = :utorid", {'utorid' :utorid}).all()
     return render_template('remarkstatus.html', user=user)
 
+#Allows students to submit remarks
 @app.route('/studentremark', methods = ['GET', 'POST'])
 def studentremark():
     if request.method == 'GET':
@@ -233,59 +240,71 @@ def studentremark():
             add_remarks(student_mark_details)
         return redirect(url_for('studentremark'))
 
+#Adds a user to db
 def add_users(user_details):
     user = RegisteredUsers(utorid = user_details[0], usertype = user_details[1], email = user_details[2], password = user_details[3])
     db.session.add(user)
     db.session.commit()
 
+#Adds marks to db
 def add_marks(student_mark_details):
     student = Student(utorid = student_mark_details[0], coursecomponent = student_mark_details[1], mark = student_mark_details[2])
     db.session.add(student)
     db.session.commit()
 
+#Adds a remark request to db
 def add_remarks(student_remark_details):
     student = Remark(utorid = student_remark_details[0], coursecomponent = student_remark_details[1], mark = student_remark_details[2], remark = student_remark_details[3], remarkstatus = student_remark_details[4])
     db.session.add(student)
     db.session.commit()
 
+#Changes a students mark with new student_mark_details
 def change_marks(student_mark_details):
     db.engine.execute("UPDATE Student SET mark = :mark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1]})
     db.engine.execute("UPDATE Remark SET mark = :mark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1], 'remarkstatus': student_mark_details[3]})
     db.engine.execute("UPDATE Remark SET remarkstatus = :remarkstatus WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1], 'remarkstatus': student_mark_details[3]})
 
+#returns all users
 def query_users():
     query_users = RegisteredUsers.query.all()
     return query_users
 
+#returns all instructors
 def query_instructors():
     query_instructors = RegisteredUsers.query.filter_by(usertype = 'instructor')
     query_instructors = enumerate(query_instructors)
     return query_instructors
 
+#Adds feedback to db
 def add_feedback(feedback_details):
     feedback = Feedback(q1 = feedback_details[0], q2 = feedback_details[1], q3 = feedback_details[2], q4 = feedback_details[3], instructor_id = feedback_details[4])
     db.session.add(feedback)
     db.session.commit()
 
+#Queries all feedback by instructor
 def query_feedback(instructor):
     query_feedback = Feedback.query.filter_by(instructor_id = instructor)
     return query_feedback
 
+#returns announcements page
 @app.route('/announcements')
 def announcements():
     pagename = 'announcements'
     return render_template('announcements.html', pagename=pagename)
 
+#returns syllabus page
 @app.route('/syllabus')
 def syllabus():
     pagename = 'syllabus'
     return render_template('syllabus.html', pagename=pagename)
 
+#returns courseteam page
 @app.route('/courseteam')
 def courseteam():
     pagename = 'courseteam'
     return render_template('courseteam.html', pagename=pagename)
 
+#returns feedback page
 @app.route('/feedback', methods = ['GET', 'POST'])
 def feedback():
     pagename = 'feedback'
@@ -313,27 +332,31 @@ def feedback():
         add_feedback(feedback_details)
         return render_template('feedback_success.html', pagename = pagename)
 
+#returns lectures and tutorials page
 @app.route('/lectut')
 def lectut():
     pagename = 'lectut'
     return render_template('lectut.html', pagename=pagename)
 
+#returns assignments page
 @app.route('/assignments')
 def assignments():
     pagename = 'assignments'
     return render_template('assignments.html', pagename=pagename)
 
+#returns resources page
 @app.route('/resources')
 def resources():
     pagename = 'resources'
     return render_template('resources.html', pagename=pagename)
 
+#returns home page post-sign up
 @app.route('/signuphome')
 def signuphome():
     pagename = 'signuphome'
     return render_template('home.html', pagename=pagename)
 
-
+#returns unsgined-up home page
 @app.route('/unsignedhome')
 def unsignedhome():
     pagename = 'home'
