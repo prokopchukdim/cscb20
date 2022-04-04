@@ -28,7 +28,36 @@
         {% endif %}
 
         {% if session.type == "instructor" %}
-        <p>Nothing here for instructors yet, whoops!</p>
+        <p>Here you can see the feedback you received from CSCB20 students, specific to you:</p>
+
+            <div id="table">
+                
+                <div id="table-header">
+                    <div class="table-header-cell">Date</div>
+                    <div class="table-header-cell">What do you like about the instructor teaching?</div>
+                    <div class="table-header-cell">What do you recommend the instructor to do to improve their teaching?</div>
+                    <div class="table-header-cell">What do you like about the labs?</div>
+                    <div class="table-header-cell">What do you recommend the lab instructors to do to improve their lab teaching?</div>
+
+                </div>
+
+                {% for query in query_feedback_result %}
+                <div id="table-body">
+
+                    <div class="table-row">
+                        <div class="table-body-cell">{{query.date_sent}}</div>
+                        <div class="table-body-cell">{{query.q1}}</div>
+                        <div class="table-body-cell">{{query.q2}}</div>
+                        <div class="table-body-cell">{{query.q3}}</div>
+                        <div class="table-body-cell">{{query.q4}}</div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+                
+                
+            </div>
         {% endif%}
         
     </div>

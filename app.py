@@ -267,6 +267,10 @@ def add_feedback(feedback_details):
     db.session.add(feedback)
     db.session.commit()
 
+def query_feedback(instructor):
+    query_feedback = Feedback.query.filter_by(instructor_id = instructor)
+    return query_feedback
+
 @app.route('/announcements')
 def announcements():
     pagename = 'announcements'
@@ -286,8 +290,13 @@ def courseteam():
 def feedback():
     pagename = 'feedback'
     if request.method == 'GET':
-        query_instructors_result = query_instructors()
-        return render_template('feedback.html', pagename=pagename, query_instructors_result = query_instructors_result)
+        if session['type'] == 'instructor':
+            instructor = session['name']
+            query_feedback_result = query_feedback(instructor)
+            return render_template('feedback.html', pagename=pagename, query_feedback_result = query_feedback_result)
+        else:
+            query_instructors_result = query_instructors()
+            return render_template('feedback.html', pagename=pagename, query_instructors_result = query_instructors_result)
     else:
         instructor = request.form['instructor']
         q1 = request.form['q1']
