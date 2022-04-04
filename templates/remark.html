@@ -10,8 +10,10 @@
                 <div id="table-header">
                     <div class="table-header-cell">Student utorid</div>
                     <div class="table-header-cell">Course component</div>
-                    <div class="table-header-cell">Mark</div>
+                    <!-- <div class="table-header-cell">Mark</div> -->
                     <div class="table-header-cell">Remark request & explanation</div>
+                    <div class="table-header-cell">Edit mark</div>
+                    <div class="table-header-cell">Remark request status</div>
 
                 </div>
 
@@ -21,8 +23,17 @@
                     <div class="table-row">
                         <div class="table-body-cell">{{ user[0] }}</div>
                         <div class="table-body-cell">{{ user[1] }}</div>
-                        <div class="table-body-cell">{{ user[2] }}</div>
+                        <!-- <div class="table-body-cell">{{ user[2] }}</div> -->
                         <div class="table-body-cell">{{ user[3] }}</div>
+                        <div class="table-body-cell">
+                            <form  action="remark" method = "post"> 
+                                <input class = "hidden-input" name="utorid" required value = "{{ user[0] }}">
+                                <input class = "hidden-input" name="coursecomp" required value = "{{ user[1] }}">
+                                <input class = "number-input" type="remark" name="remark" required value = "{{ user[2] }}">
+                                <button type = "submit" class = "general-button">Confirm Change</button>
+                            </form>
+                        </div>
+                        <div class="table-body-cell">{{ user[4] }}</div>
                     </div>
                 </div>
                 {% endfor %}

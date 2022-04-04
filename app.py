@@ -39,9 +39,10 @@ class Remark(db.Model):
     coursecomponent = db.Column(db.String(100), nullable=False, primary_key=True)
     mark = db.Column(db.Integer, nullable = False)
     remark = db.Column(db.String(300), nullable=False)
+    remarkstatus = db.Column(db.String(20), nullable=False)
 
     def __repr__(self):
-        return f"Remark('{self.utorid}', '{self.coursecomponent}', '{self.mark}', '{self.remark}')"
+        return f"Remark('{self.utorid}', '{self.coursecomponent}', '{self.mark}', '{self.remark}', '{self.remarkstatus})"
 
 class Feedback(db.Model):
     __tablename__ = 'Feedback'
@@ -51,7 +52,7 @@ class Feedback(db.Model):
     q3 = db.Column(db.String(300), nullable = False)
     q4 = db.Column(db.String(300), nullable = False)
     date_sent = db.Column(db.DateTime, nullable = False, default = datetime.now())
-    instructor_id = db.Column(db.String(20), db.ForeignKey('RegisteredUders.utorid'), nullable = False)
+    instructor_id = db.Column(db.String(20), db.ForeignKey('RegisteredUsers.utorid'), nullable = False)
 
     def __repr__(self):
         return f"Feedback('{self.id}', '{self.q1}', '{self.q2}', '{self.q3}', '{self.q4}', '{self.date_sent}', '{self.instructor_id}')"
@@ -152,22 +153,29 @@ def entermarks():
         add_marks(student_mark_details)
         return redirect(url_for('entermarks'))
 
-@app.route('/viewmarks', methods = ['GET', 'POST'])
+@app.route('/viewmarks')
 def viewmarks():
+    user = db.engine.execute("select * from Student ORDER BY utorid, coursecomponent").all()
+    return render_template('viewmarks.html', user=user)
+
+@app.route('/remark', methods = ['GET', 'POST'])
+def remark():
     if request.method == 'GET':
-        user = db.engine.execute("select * from Student ORDER BY utorid, coursecomponent").all()
-        return render_template('viewmarks.html', user=user)
+        user = db.engine.execute("select * from Remark").all()
+        return render_template('remark.html', user=user)
     else:
         utorid = request.form['utorid']
         coursecomponent = request.form['coursecomp']
         mark = request.form['remark']
+        remarkstatus = "closed"
         student_mark_details = (
             utorid,
             coursecomponent, 
-            mark
+            mark,
+            remarkstatus
         )
         change_marks(student_mark_details)
-        return redirect(url_for('viewmarks'))
+        return redirect(url_for('remark'))
 
 @app.route('/marks')
 def marks():
@@ -180,10 +188,11 @@ def marks():
         return render_template('marks.html', user=user)
 
 
-@app.route('/remark')
-def remark():
-    user = db.engine.execute("select * from Remark").all()
-    return render_template('remark.html', user=user)
+@app.route('/remarkstatus')
+def remarkstatus():
+    utorid = session['name']
+    user = db.engine.execute("select * from Remark where utorid = :utorid", {'utorid' :utorid}).all()
+    return render_template('remarkstatus.html', user=user)
 
 @app.route('/studentremark', methods = ['GET', 'POST'])
 def studentremark():
@@ -220,6 +229,7 @@ def add_remarks(student_remark_details):
 
 def change_marks(student_mark_details):
     db.engine.execute("UPDATE Student SET mark = :mark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1]})
+    db.engine.execute("UPDATE Remark SET mark = :mark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1], 'remarkstatus': student_mark_details[4]})
 
 
 def query_users():
