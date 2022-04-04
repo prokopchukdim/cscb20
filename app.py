@@ -167,7 +167,7 @@ def remark():
         utorid = request.form['utorid']
         coursecomponent = request.form['coursecomp']
         mark = request.form['remark']
-        remarkstatus = "closed"
+        remarkstatus = 'closed'
         student_mark_details = (
             utorid,
             coursecomponent, 
@@ -182,7 +182,6 @@ def marks():
     if session['type'] == 'instructor':
        return render_template('marks.html')
     else:
-        
         utorid = session['name']
         user = db.engine.execute("select * from Student where utorid = :utorid", {'utorid':utorid}).all()
         return render_template('marks.html', user=user)
@@ -203,11 +202,13 @@ def studentremark():
         coursecomponent = request.form['remark-input-1'] 
         mark = request.form['remark-input-2'] 
         remark = request.form['remark']
+        remarkstatus = request.form['remark-input-3']
         student_mark_details = (
             utorid,
             coursecomponent, 
             mark,
-            remark
+            remark, 
+            remarkstatus
         )
         add_remarks(student_mark_details)
         return redirect(url_for('studentremark'))
@@ -223,14 +224,14 @@ def add_marks(student_mark_details):
     db.session.commit()
 
 def add_remarks(student_remark_details):
-    student = Remark(utorid = student_remark_details[0], coursecomponent = student_remark_details[1], mark = student_remark_details[2], remark = student_remark_details[3])
+    student = Remark(utorid = student_remark_details[0], coursecomponent = student_remark_details[1], mark = student_remark_details[2], remark = student_remark_details[3], remarkstatus = student_remark_details[4])
     db.session.add(student)
     db.session.commit()
 
 def change_marks(student_mark_details):
     db.engine.execute("UPDATE Student SET mark = :mark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1]})
-    db.engine.execute("UPDATE Remark SET mark = :mark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1], 'remarkstatus': student_mark_details[4]})
-
+    db.engine.execute("UPDATE Remark SET mark = :mark WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1], 'remarkstatus': student_mark_details[3]})
+    db.engine.execute("UPDATE Remark SET remarkstatus = :remarkstatus WHERE utorid = :utorid AND coursecomponent = :coursecomp", {'mark':student_mark_details[2], 'utorid':student_mark_details[0], 'coursecomp':student_mark_details[1], 'remarkstatus': student_mark_details[3]})
 
 def query_users():
     query_users = RegisteredUsers.query.all()

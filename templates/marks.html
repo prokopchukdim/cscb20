@@ -29,6 +29,7 @@
                             <input type="remark" name="remark" placeholder="Please type an explanation..." required="">
                             <input class = "hidden-input remark-input-1" name = "remark-input-1" value = "">
                             <input class = "hidden-input remark-input-2" name = "remark-input-2" value = "">
+                            <input class = "hidden-input remark-input-3" name = "remark-input-3" value = "submitted">
                             <button type = "submit" class = "general-button">Submit</button>
                         </form>
                     </div>
@@ -65,7 +66,7 @@
                 <a class = "log-navbutton" href="{{ url_for('viewmarks') }}">View Marks</a>
                 <a class = "log-navbutton" href="{{ url_for('remark') }}">View Remark Requests</a>        
 			</div>
-            <p>Please enter new marks in the Enter Marks menu. You can change existing marks in View Marks, or view remark requests in View Remark Requests.</p>
+            <p>Please enter new marks in the Enter Marks menu. You can view all students' existing marks in View Marks, or view and address/close remark requests in View Remark Requests.</p>
             {% endif %}
         </div>
     </div>
