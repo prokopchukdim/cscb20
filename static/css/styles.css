@@ -649,7 +649,7 @@ iframe{
 		margin-top: 30px;
 	}
 
-	body, .small-title, #feedback-textarea, .general-button, #table-header, ::placeholder, select, input{
+	body, .small-title, #feedback-textarea, .general-button, #table-header, select, input{
 		font-size: 14px;
 	}
 
@@ -657,7 +657,7 @@ iframe{
 		font-size: 16px;
 	}
 
-	.table-body-cell, .table-body-cell > form > input{
+	.table-body-cell, .table-body-cell > form > input, ::placeholder{
 		font-size: 12px;
 	}
 	.number-input{
