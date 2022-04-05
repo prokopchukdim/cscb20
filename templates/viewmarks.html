@@ -1,0 +1,41 @@
+{% extends "loginsuccess_temp.html" %}
+{% block content %}
+        <div class = "content-wrapper">
+            <p class="big-title">CSCB20\\View_Marks<span class = "underline-animation">_</span></p>
+            <div class="linebr"></div>
+            <div class="space-br"></div>
+            
+            <p>Here are all students' marks. You can also make changes in the table!</p>
+
+            <div id="table">
+                
+                <div id="table-header">
+                    <div class="table-header-cell">Student utorid</div>
+                    <div class="table-header-cell">Course component</div>
+                    <div class="table-header-cell">Mark</div>
+
+                </div>
+
+                {% for user in user %}
+                <div id="table-body">
+
+                    <div class="table-row">
+                        <div class="table-body-cell">{{ user[0] }}</div>
+                        <div class="table-body-cell">{{ user[1] }}</div>
+                        <div class="table-body-cell">
+                            <form  action="viewmarks" method = "post"> 
+                                <input class = "hidden-input" name="utorid" required value = "{{ user[0] }}">
+                                <input class = "hidden-input" name="coursecomp" required value = "{{ user[1] }}">
+                                <input class = "number-input" type="remark" name="remark" required value = "{{ user[2] }}">
+                                <button type = "submit" class = "general-button">Confirm Change</button>
+                            </form>
+                        </div>
+                        <div class="table-body-cell"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                </div>
+            </div>
+        </div>
+        {% endblock %}

@@ -1,1 +1,0 @@
-As a student user, when clicking on the “Syllabus” link, the student must be able to access a pdf of the current syllabus through the link provided.

@@ -1,0 +1,15 @@
+{% extends "loginsuccess_temp.html" %}
+{% block content %}
+        <div class = "content-wrapper">
+            <p class="big-title">Please enter a student's mark<span class = "underline-animation">_</span></p>
+            <div class="linebr"></div>
+            <div class="space-br"></div>
+            <form action="entermarks" method = "post">
+				<input type="utorid" name="utorid" placeholder="Student Utorid" required="">
+                <input type="coursecomp" name="coursecomp" placeholder="Course Component" required="">
+                <input type="mark" name="mark" placeholder="Mark" required="">
+				<button class = "general-button">Submit</button>
+            </form>
+        </div>
+            
+        {% endblock %}

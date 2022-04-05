@@ -1,1 +1,0 @@
-As a student user, when clicking on the “Announcements” link, the student should be able to see the exam, lecture and tutorial sections timings and location through the embedded course calendar.

@@ -1,0 +1,64 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>CSCB20</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+	<nav id = "navbar">
+
+		<input type = "checkbox" id = "mobile-nav-toggle"/>
+
+		<div id = "mobile-nav">
+			<a class = "navbutton mobile-nav-home" href=" {{ url_for('home') }}">CSCB20</a>
+			<label for = "mobile-nav-toggle">
+				<span></span>
+			</label>
+		</div>
+	</nav>	 -->
+
+{% extends "template.html" %}
+
+{% block content %}
+
+	<div class = "content-wrapper">
+		<p class="huge-title">CSCB20\\Log_In<span class = "underline-animation">_</span></p>
+		<div class="linebr"></div>
+		<div class="login">
+			<div class = "space-br"></div>
+			<form action="login" method = "post">
+				
+				<p>\\Type</p>
+				<div id = "student-instructor-wrapper">					
+					<input type = "checkbox" name = "Instructor" id = "instructor-toggle" onchange="toggleCheck('i')"/>
+					<label class = "log-navbutton log-togglebutton" id = "instructor-label" for="instructor-toggle" >Instructor</label>
+					<input type = "checkbox" name = "Student" id = "student-toggle" checked="checked" onchange="toggleCheck('s')"/>
+					<label class = "log-navbutton log-togglebutton" id = "student-label" for = "student-toggle">Student</label>					
+				</div>
+
+				<!-- <label for="chk" aria-hidden="true"></label> -->
+				<p>\\Details</p>
+				<input type="utorid" name="utorid" placeholder="Utorid" required="">
+				<input type="password" name="pswd" placeholder="Password" required="">
+				<button class = "general-button">Log in</button>
+				
+				{% with messages = get_flashed_messages(with_categories = True) %}
+				{% if messages %}
+					{% for category, message in messages %}
+						<div class = "error-div">{{ category }} - {{ message }}</div>
+					{% endfor %}
+				{% endif %}
+				{% endwith %}
+				
+			</form>
+		</div>
+	</div>
+{% endblock %}
+
+<!-- </body>
+</html> -->
