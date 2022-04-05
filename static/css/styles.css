@@ -94,10 +94,10 @@ button:hover{
 	width:100%;
 	height: 100%;
 }
-.login label{
-	/* transform: scale(.6); */
+/* .login label{
+	transform: scale(.6); 
 	font-size: 18px;
-}
+} */
 
 .text-override{
 	color: #2e2817;
