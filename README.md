@@ -1,2 +1,2 @@
 # cscb20
-HTML/CSS website developed for CSCB20 Assignment  3
+Course website redesign developed as a project for the CSCB20 course. Complete with user reigistration, authentication, and authorization for different pages depending on user type. Deployed to Heroku at: https://cscb20-araikatdim.herokuapp.com/
