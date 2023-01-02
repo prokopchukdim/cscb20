@@ -19,6 +19,8 @@ Users can log in as either an instructor or student. Account types are determine
 
 ![image](https://user-images.githubusercontent.com/87666671/210259147-f0f13433-03a7-4320-bfd1-b43cdd1a000a.png)
 
+Users can also register in the same way through the register screen. An error is displayed if a user attempts to register using an existing utorid
+
 Once users are authenticated, a Flask session is created and users are authorized to view a number of pages based on account type. Shared pages between instructors and students include static course information and content.
 
 ![image](https://user-images.githubusercontent.com/87666671/210260254-224ff3c8-7998-4c14-8951-51c8f3f2dfe2.png)
